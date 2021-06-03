@@ -17,9 +17,9 @@
 
 ### Shell:
 - zsh
-- - zsh-syntax-highlighting
-- - zsh-autosuggestions
-- - fzf-autocomplition (found it somewhere on gitthub. I dont remember Where, but thanks a lot to the author)
+  - zsh-syntax-highlighting
+  - zsh-autosuggestions
+  - fzf-autocomplition (found it somewhere on github. I don't remember where, but thanks a lot to the author)
 
 ### Fonts:
 - gnu-free-fonts
