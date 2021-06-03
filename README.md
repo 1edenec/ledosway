@@ -33,3 +33,6 @@
 - ttf-roboto-mono
 - ttf-symbola
 ###### Some Fonts Are overkill, but i want them to be on my setup)
+
+### Cursor themes
+- volantes-cursors
