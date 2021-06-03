@@ -1,0 +1,2 @@
+# ledosway
+my sway setup
