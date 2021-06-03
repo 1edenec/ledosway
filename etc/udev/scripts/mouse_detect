@@ -1,0 +1,28 @@
+#!/bin/env bash
+# if Xorg not runnig this script will make some problem to your session, so:
+if pgrep -x Xorg >/dev/null
+then
+	USER_NAME=$(who | awk -v vt=tty$(fgconsole) '$0 ~ vt {print $1}')
+	USER_ID=$(id -u "$USER_NAME")
+	STAT=$1
+	DISPLAY=:0
+	XAUTHORITY=/run/user/$USER_ID/Xauthority
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$USER_ID/bus
+
+	export DISPLAY XAUTHORITY DBUS_SESSION_BUS_ADDRESS
+
+	ID=`xinput list | grep -Eio 'touchpad\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
+	if [ "$STAT" == "connected" ]
+	then
+		COM="disable"
+		MESS="disabled"
+		ICON="input-touchpad-off"
+	else
+		COM="enable"
+		MESS="enabled"
+		ICON="input-touchpad-on"
+	fi
+
+	su led -c "dunstify -r 1408 -i $ICON  'Mouse $STAT' 'Touchpad $MESS'"
+	xinput $COM $ID
+fi

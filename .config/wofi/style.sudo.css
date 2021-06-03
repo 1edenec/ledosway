@@ -1,0 +1,33 @@
+@define-color highlight #FF8080;
+@define-color background  #1F252A;
+
+window {
+	margin: 0px;
+	border: 2px solid @highlight;
+	background-color: @background;
+	font-family: UbuntuMono;
+	font-size: 14pt;
+}
+
+
+#inner-box {
+	margin: 0px;
+	border: none;
+	background-color: @background;
+}
+
+#outer-box {
+	margin: 5px;
+	padding:10px;
+	margin-bottom: -22px;
+}
+
+#entry:selected{
+}
+
+#input {
+	color: @highlight;
+	background-color: @background;
+}
+
+

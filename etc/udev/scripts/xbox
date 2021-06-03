@@ -1,0 +1,22 @@
+#!/bin/bash
+
+STAT=$2
+
+DISPLAY=":0"
+XAUTHORITY=/run/user/1000/Xauthority
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+export DISPLAY XAUTHORITY DBUS_SESSION_BUS_ADDRESS
+
+case "$1" in
+    add)
+        xset -dpms
+        xset s off
+        su led -c "notify-send  'System Message' 'Xbox Gamepad $STAT connected'"
+        ;;
+    remove)
+        xset +dpms
+	xset s on
+	su led -c "notify-send  'Sytem Message' 'Xbox Gamepad $STAT disconnected'"
+	;;
+	*) exit ;;
+esac

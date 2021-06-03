@@ -1,0 +1,312 @@
+
+/* ::-moz-selection {background-color: red !important;} */
+
+
+/* Removes Window control buttons  */
+.titlebar-buttonbox-container {display:none !important;}
+
+
+/* Centers bookmarks in the bookmark toolbar */
+#PlacesToolbarItems{ -moz-box-pack: center }
+
+
+/* Changes the color of the space to the right of open tabs */
+#tabbrowser-tabs {
+	background-color: #none !important;
+}
+
+
+/* Changes the color of the star button on websites you can bookmark */
+#star-button	{
+	fill: #97D59B !important;
+}
+
+
+/* Disables the blue flash when a tab loads */
+.tabbrowser-tab .tab-loading-burst {
+  display: none !important;
+}
+
+
+/* Gets rid of the space on the top of the window that's not taken up by tabs */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+	display: none !important;
+	width: 0px !important;
+	max-width: 0px !important;
+}
+
+
+/* Changes the text color when you type something into the url bar. If someone knows how to fix the blue text, please let me know */
+#urlbar{
+	box-shadow: none !important;
+	background-color: #97D59B !important;
+	background: #1F252A !important;
+	border: none !important;
+	color : #97D59B !important;
+	font-weight: bold !important;
+}
+
+
+/* Removes the faint line above the url bar */
+#nav-bar {
+	box-shadow: none !important;
+	border-top: none !important;
+}
+
+
+/* Changes the color of the bookmarks toolbar */
+#PersonalToolbar {
+	background-color: #1F252A !important;
+        color: #97D59B !important;
+}
+
+
+/* Changes the color of the bookmark stars */
+.urlbarView-row[type=bookmark] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-type-icon {
+        fill: #97D59B !important;
+}
+
+
+/* This makes it so that on start-up the screen doesn't flash */
+#browser vbox#appcontent tabbrowser,
+#content,
+#tabbrowser-tabpanels,
+browser[type=content-primary],
+browser[type=content] > html{
+	background: #1F252A !important;
+}
+
+
+/* Removes weird line between the stacks and profile */
+#PanelUI-button {
+	border:none !important;
+	margin-inline-start: 0px !important;
+	padding-inline-start: 0px !important;
+}
+
+
+/* This mess makes it so that there's no hover over the toolbar icons */
+.urlbar-icon,
+.urlbar-icon-wrapper,
+#tabbrowser-tabs toolbarbutton,
+toolbar toolbarbutton > .toolbarbutton-icon,
+toolbar toolbarbutton > .toolbarbutton-badge-stack,
+.titlebar-button,
+#identity-box,
+#tracking-protection-icon-container,
+.findbar-textbox~toolbarbutton,
+toolbarbutton.scrollbutton-up,
+toolbarbutton.scrollbutton-down {
+	background-color: transparent !important;
+	border: none !important;
+}
+
+
+/* Removes the border below the bookmarks toolbar */
+#navigator-toolbox {
+	border: none !important;
+}
+
+
+/* Removes the line between tabs */
+.tabbrowser-tab::before,
+.tabbrowser-tab::after{
+	display: none !important;
+}
+
+
+/* Changes the tab topline color */
+.tabbrowser-tab {
+	--tab-line-color: #97D59B !important;
+	color: #97D59B !important;
+}
+
+
+/* Changes the colors of the area behind the tabs */
+#tabbrowser-tabs {
+	background-color: #1F252A !important;
+}
+
+
+/* Changes toolbar button colors */
+.toolbarbutton-1 {
+	fill: #97D59B !important;
+	background-color: #1F252A !important;
+}
+
+
+.tab-close-button.close-icon {
+  display: none !important;
+}
+.tabbrowser-tab:hover .tab-close-button.close-icon {
+  display: block !important;
+}
+
+
+/* Changes the animation and colors of the download button */
+#downloads-button[attention="success"]>.toolbarbutton-badge-stack>#downloads-indicator-anchor>#downloads-indicator-icon,
+#downloads-button[attention="success"]>.toolbarbutton-badge-stack>#downloads-indicator-anchor>#downloads-indicator-progress-outer {
+	fill: #97D59B !important;
+}
+
+
+#downloads-button[notification="start"]>.toolbarbutton-badge-stack>#downloads-indicator-anchor>#downloads-indicator-icon,
+#downloads-notification-anchor[notification="start"]>#downloads-indicator-notification {
+	fill: #97D59B !important;
+}
+
+
+#downloads-button[progress]>.toolbarbutton-badge-stack>#downloads-indicator-anchor>#downloads-indicator-icon,
+#downloads-button[progress]>#downloads-indicator-anchor>#downloads-indicator-progress-outer {
+	fill: #97D59B !important;
+}
+
+
+#downloads-button>.toolbarbutton-badge-stack>#downloads-indicator-anchor>#downloads-indicator-progress-outer>#downloads-indicator-progress-inner {
+	fill: red !important;
+	border: 1px !important;
+	border-color: #97D59B !important;
+}
+
+
+
+/* This block makes the tabs seamless with the rest of the config's color */
+tab
+{
+
+	height:2rem;
+	background-color: #1F252A !important;
+	font-weight: thin !important;
+	color : #6A6A6A !important;
+}
+
+
+.tabbrowser-tab:not([selected]) .tab-content{
+    color: #6A6A6A !important;
+}
+
+
+.tab-content[selected="true"]
+{
+
+	background-color: #1F252A !important;
+	font-weight: bold !important;
+	color : #97D59B !important;
+}
+
+
+#nav-bar-customization-target {
+	background-color: #97D59B !important;
+}
+/* ENDBLOCK */
+
+
+/* Changes the color of the empty area around the nav bar */
+#nav-bar-customization-target {
+	background-color: #1F252A !important;
+}
+
+
+/* Changes the colors in the hamburger and other menus
+*
+* I can't figure out how to change the border color of the hamburger menu. If you know, please let me know
+*
+*/
+.PanelUI-subView, .panel-subview-body {
+	--newtab-search-icon-color: #97D59B;
+	--arrowpanel-background: none !important;
+	--arrowpanel-color: #97D59B !important;
+	--lwt-accent-color: rgb(12, 12, 13);
+	--lwt-text-color: #97D59B !important;
+	color: #97D59B !important;
+	background-color: #1F252A !important;
+
+}
+
+
+/* Changes the text color in the bookmarks bar */
+#personal-bookmarks .bookmark-item > .toolbarbutton-text {
+	text-color: #97D59B !important;
+	color: #97D59B !important;
+	background-color: #1F252A !important
+}
+
+
+/* Hides the private browsing indicator */
+.private-browsing-indicator {
+	display: none !important;
+}
+
+
+/* REMOVE MEGABAR START
+ * VERSION 1.0.4
+ * CODE AT: http://userchrome.wesleybranton.com/megabar
+ * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+    /* DISABLE EXPANDING START */
+    #urlbar[breakout][breakout-extend] {
+        top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+
+    #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+        height: var(--urlbar-height) !important;
+        padding-block: 0 !important;
+        padding-inline: 0 !important;
+    }
+
+
+    #urlbar[breakout][breakout-extend] > #urlbar-background {
+        animation-name: none !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
+    }
+    /* DISABLE EXPANDING END */
+
+    /* REMOVE URL RESULT PADDING START */
+    .urlbarView {
+        margin-inline: 0 !important;
+        width: 100% !important;
+		background-color: #1F252A !important;
+    }
+
+
+
+    .urlbarView-row {
+        padding-block: 0 !important;
+    }
+    /* REMOVE URL RESULT PADDING END */
+
+    /* MOVE URL RESULT TYPE ICON TO LEFT START */
+    .urlbarView-type-icon {
+        min-width: 16px !important;
+        height: 16px !important;
+        margin-bottom: 0 !important;
+        margin-inline-start: 0 !important;
+    }
+
+
+    .urlbarView-favicon {
+        margin-inline-start: 20px !important;
+    }
+    /* MOVE URL RESULT TYPE ICON TO LEFT END */
+
+    /* DISPLAY GO BUTTON WHEN TYPING START */
+    #urlbar-input-container[pageproxystate="invalid"] #urlbar-go-button {
+        display: block !important;
+    }
+    /* DISPLAY GO BUTTON WHEN TYPING END */
+
+    /* ALWAYS SHOW PAGE ACTIONS START */
+    /* DISABLED BY DEFAULT - UNCOMMENT TO ENABLE */
+    /*#pageActionButton {
+        display: block !important;
+    }*/
+    /* ALWAYS SHOW PAGE ACTIONS END */
+
+/* REMOVE MEGABAR END */
+
+
+

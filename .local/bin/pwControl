@@ -1,0 +1,109 @@
+#!/bin/bash
+
+PID="1283"
+ICON_VOL_HIGH="notification-audio-volume-high"
+ICON_VOL_MED="notification-audio-volume-medium"
+ICON_VOL_LOW="notification-audio-volume-low"
+ICON_VOL_MUTED="notification-audio-volume-muted"
+NOTHEAD="Volume:"
+INCR=5
+ICON="$ICON_VOL_MUTED"
+TEXT="muted"
+USE_SOUND="true"
+
+usage(){
+	echo -e "Unknowm argument.\nUsage:\nvolControl <up|down|mute>"
+}
+
+
+get_status(){
+	DEF_SINK=$(pactl info | awk '/Default Sink:/ {print$3}')
+	# STAT will be "no" if not Muted and "yes" if muted
+	STAT=$(pactl list sinks | awk -v DEFSINK="${DEF_SINK}" '$2 ~ DEFSINK {s=NR;next} s && NR==s+6 {print $2}')
+	VOLUME=$(pactl list sinks | awk -v DEFSINK="${DEF_SINK}" '$2 ~ DEFSINK {s=NR;next} s && NR==s+7 {gsub ("%","",$5);print $5}')
+}
+
+
+get_icon(){
+	if (( $1 > 66 ))
+	then
+		ICON=$ICON_VOL_HIGH
+	elif (( $1 < 33  ))
+	then
+		ICON=$ICON_VOL_LOW
+	else
+		ICON=$ICON_VOL_MED
+	fi
+}
+
+
+mute_vol(){
+	if [ $STAT != "no" ]
+	then
+		TEXT="$VOLUME"%
+		get_icon $(echo $TEXT | sed "s|%||")
+	fi
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+}
+
+
+up_vol(){
+	if [ $STAT == "no" ]
+	then
+		OST=$(( 100 - $VOLUME ))
+		if [ $OST -le $INCR ]
+		then
+			pactl set-sink-volume @DEFAULT_SINK@ 100%
+			TEXT="100"%
+		else
+			pactl set-sink-volume @DEFAULT_SINK@ +$INCR%
+			TEXT="$(( VOLUME + INCR ))"%
+		fi
+		get_icon $(echo $TEXT | sed "s|%||")
+	else
+		TEXT="$VOLUME"%
+	fi
+}
+
+
+down_vol(){
+	if [ $STAT == "no" ]
+	then
+		if [ $VOLUME -le $INCR ]
+		then
+			pactl set-sink-volume @DEFAULT_SINK@ 0%
+			TEXT="0"%
+		else
+			pactl set-sink-volume @DEFAULT_SINK@ -$INCR%
+			TEXT="$(( VOLUME - INCR ))"%
+		fi
+		get_icon $(echo $TEXT | sed "s|%||")
+	else
+		TEXT="$VOLUME"%
+	fi
+}
+
+
+message(){
+	dunstify -i $ICON  -r $PID $NOTHEAD ${TEXT}
+}
+
+
+bip(){
+	canberra-gtk-play -i audio-volume-change -d "Volume changed"
+}
+
+
+get_status
+
+case  $1 in
+	mute)	mute_vol \
+		&&	(message ; polybar-msg hook pipewire 2 > /dev/null)
+			;;
+	up)		up_vol		&&	message; $USE_SOUND && bip	;;
+	down)	down_vol	&&	message; $USE_SOUND && bip	;;
+	*)		usage	;;
+esac
+
+
+

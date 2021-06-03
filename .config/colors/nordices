@@ -1,0 +1,41 @@
+[color]
+
+bg = #2E3440
+fg = #FFFFFF
+fg-alt = #FFFFF
+
+acolor = #FFFFFF
+curgent = #EF5350
+coccupied = #42A5F5
+
+shade1 = #5c7c7c
+shade2 = #4C5464
+shade3 = #5C7C7C
+shade4 = #647484
+shade5 = #4C5464
+shade6 = #424C5E
+shade7 = #64B5F6
+shade8 = #90CAF9
+txt = #2C2C2C
+
+## Material Colors
+
+red = #e53935
+pink = #d81b60
+purple = #8e24aa
+deep-purple = #5e35b1
+indigo = #3949ab
+blue = #1e88e5
+light-blue = #039be5
+cyan = #00acc1
+teal = #00897b
+green = #43a047
+light-green = #7cb342
+lime = #c0ca33
+yellow = #fdd835
+amber = #ffb300
+orange = #1B1C21
+deep-orange = #1B1C21
+brown = #6d4c41
+grey = #757575
+blue-gray = #546e7a

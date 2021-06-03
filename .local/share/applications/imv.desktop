@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=IMV
+GenericName=Image viewer
+Comment=Shows images
+Exec=imv %F
+Terminal=false
+Type=Application
+Keywords=Text;editor;
+Icon=appimagekit-xnviewmp
+Categories=Utility;TextEditor;
+StartupNotify=false

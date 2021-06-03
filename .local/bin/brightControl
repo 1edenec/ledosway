@@ -1,0 +1,46 @@
+#!/bin/bash
+# simple brightness control script
+# with notify-send
+# dependencies:
+# notify-send.sh brightnessctl
+
+PID="1283"
+BRIGHT_FULL="notification-display-brightness-full"
+BRIGHT_HIGH="notification-display-brightness-high"
+BRIGHT_MED="notification-display-brightness-medium"
+BRIGHT_LOW="notification-display-brightness-low"
+NOTHEAD="Brightness:"
+INCR=10
+ICON=$BRIGHT_FULL
+
+
+get_icon(){
+	if (( $BRIGHT_CUR > 66 ))
+	then
+		ICON=$BRIGHT_HIGH
+	elif (( $BRIGHT_CUR > 33 ))
+	then
+		ICON=$BRIGHT_MED
+	else
+		ICON=$BRIGHT_LOW
+	fi
+	TEXT="$BRIGHT_CUR"%
+}
+
+
+message(){
+	dunstify -i $ICON  -r $PID $NOTHEAD ${TEXT}
+}
+
+
+setter(){
+	BRIGHT_CUR=$(brightnessctl set $1 | awk -e '$1 == "Current"{gsub(/[()%]/,"",$4);print$4}')
+	(( $BRIGHT_CUR != 100 )) && get_icon $BRIGHT_CUR || TEXT="full"
+}
+
+
+case $1 in
+	up)		setter "+$INCR%" && message ;;
+	down)	setter "$INCR%-" && message ;;
+	*) exit ;;
+esac

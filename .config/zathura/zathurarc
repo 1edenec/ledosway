@@ -1,0 +1,41 @@
+# themming
+set font "UbuntuMono 14"
+set default-bg "#1F252A"
+set inputbar-bg "#1F252A"
+set inputbar-fg "#97D59B"
+set completion-bg "#1F252A"
+set completion-fg "#97D59B"
+set completion-group-bg "#97D59B"
+set completion-group-fg "#1F252A"
+set completion-highlight-bg "#6A6A6A"
+set completion-highlight-fg "#97D59B"
+set statusbar-bg "#1F252A"
+set statusbar-fg "#97D59B"
+
+# zoom and scroll step size
+set zoom-step 20
+set scroll-step 80
+
+# copy selection to system clipboard
+set selection-clipboard clipboard
+
+# enable incremental search
+set incremental-search true
+
+# zoom
+map <C-i> zoom in
+map <C-o> zoom out
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print

@@ -1,0 +1,22 @@
+ #101316", /* black   */
+ #82837C", /* red     */
+ #5E738B", /* green   */
+ #677B93", /* yellow  */
+ #7A899C", /* blue    */
+ #7E8EA1", /* magenta */
+ #939DA8", /* cyan    */
+ #dfdedf", /* white   */
+
+bright colors */
+#979297", /* black   */
+#82837C", /* red     */
+#5E738B", /* green   */
+#677B93", /* yellow  */
+#F3C9DA", /* blue    */
+#adc0fb", /* magenta */
+#7A899C", /* cyan    */
+#dfdedf", /* white   */
+
+/* special colors */
+"#1c2125", /* background */
+"#dfdedf", /* foreground */

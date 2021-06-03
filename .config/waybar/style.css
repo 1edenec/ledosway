@@ -1,0 +1,176 @@
+/* quiet theme */
+@define-color background  #1F252A;
+@define-color normal #97D59B;
+
+@define-color black0    #1F252A;
+@define-color black1    #384149;
+@define-color grey0     #6A6A6A;
+@define-color grey1     #6A6A6A;
+@define-color red0      #FF8080;
+@define-color red1      #FFAEAE;
+@define-color green0    #97D59B;
+@define-color green1    #BEF8C1;
+@define-color yellow0   #FFFE80;
+@define-color yellow1   #FCFBA6;
+@define-color blue0     #80D1FF;
+@define-color blue1     #ACE1FF;
+@define-color magenta0  #C780FF;
+@define-color magenta1  #D8A8FF;
+@define-color cyan0     #80FFE4;
+@define-color cyan1     #A2FFEB;
+@define-color white0    #D5D5D5;
+@define-color white1    #FFFFFF;
+
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0px;
+    padding: 0;
+}
+
+
+#waybar {
+	font-family: UbuntuMono Nerd Font;
+    font-size: 14pt;
+    min-height: 0;
+    background-color: @background;
+    color: @normal;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+
+#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: @normal;
+}
+*/
+
+
+#workspaces{
+	font-family: Iosevka;
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: @normal;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -3px @grey1;
+}
+
+#workspaces button.focused {
+    background-color: @grey1;
+    box-shadow: inset 0 -3px @normal;
+}
+
+#workspaces button.urgent {
+    background-color: @red0;
+}
+
+#mode {
+    background-color: @grey1;
+    border-bottom: 3px solid @normal;
+}
+
+#clock,
+#battery,
+#backlight,
+#pulseaudio,
+#tray,
+#mode{
+    padding: 0 2px;
+    margin: 0 4px;
+    color: @normal;
+}
+
+
+#window,
+#workspaces {
+    margin: 0 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0px;
+}
+
+
+#battery.charging, #battery.plugged {
+	background-color: @background;
+    color: @normal;
+}
+
+@keyframes blink {
+    to {
+        background-color: @normal;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red0;
+    color: @normal;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+
+#network{
+margin-right: 15px;
+margin-left: 5px;
+}
+
+
+#network.disconnected {
+    background-color: @yellow0;
+	color: @background;
+}
+
+
+#pulseaudio.muted {
+    color: @red0;
+}
+
+#idle_inhibitor{
+	margin-right: 13px;
+	margin-left: 8px;
+}
+
+#language {
+    color: @normal;
+    padding: 0 3px;
+    margin: 0 3px;
+    min-width: 10px;
+}
+
+
