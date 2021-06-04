@@ -14,6 +14,7 @@
 - qt5ct
 - fzf
 - librewolf (nighttab is addon for home/new page)
+- kotatogram-desktop-dynamic-bin (as telegram client)
 
 ### Shell:
 - zsh
