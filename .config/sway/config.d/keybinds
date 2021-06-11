@@ -42,6 +42,9 @@
     # Exit sway (logs you out of your Wayland session)
     # bindsym --to-code $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
+# scratchpads
+ bindsym $mod+slash exec ~/.config/sway/scripts/scratchpad $TERMINAL
+
 #
 # Apps
 #
@@ -110,13 +113,12 @@
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym --to-code $mod+b splith
-    bindsym --to-code $mod+v splitv
+	bindsym --to-code $mod+b splitt
+
+    bindsym --to-code $mod+v layout toggle splitv splith
 
     # Switch the current container between different layout styles
-    bindsym --to-code $mod+s layout stacking
-    #bindsym $mod+w layout tabbed
-    bindsym --to-code $mod+Shift+e layout toggle split
+    bindsym --to-code $mod+s layout toggle tabbed split
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+f fullscreen
@@ -141,6 +143,7 @@
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -197,5 +200,8 @@ bindsym XF86MonBrightnessDown exec brightControl down
 #
 # Screenshots
 #
-    bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
-    bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
+    # bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
+    # bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
+
+     bindsym Shift+print exec wofiscreen.sh
+
