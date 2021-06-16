@@ -2,7 +2,7 @@
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
-text/html=firefox.desktop
+text/html=nvim.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
@@ -10,23 +10,10 @@ application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop
-inode/directory=pcmanfm-qt.desktop
-image/gif=imv.desktop;
-image/jpeg=imv.desktop;
-image/png=imv.desktop;
-
+text/plain=nvim.desktop
+image/png=imv.desktop
 
 [Added Associations]
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/chrome=firefox.desktop;
-text/html=firefox.desktop;
-application/x-extension-htm=firefox.desktop;
-application/x-extension-html=firefox.desktop;
-application/x-extension-shtml=firefox.desktop;
-application/xhtml+xml=firefox.desktop;
-application/x-extension-xhtml=firefox.desktop;
-application/x-extension-xht=firefox.desktop;
 x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop;
 application/x-shellscript=nvim.desktop;
 text/plain=nvim.desktop;

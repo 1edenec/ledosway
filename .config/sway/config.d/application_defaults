@@ -53,6 +53,7 @@ for_window [title="Delete Files"] floating enable, sticky enable
 for_window [title="Copy Files"] floating enable, sticky enable
 for_window [title="Overwrite Files"] floating enable, sticky enable
 for_window [title="Save File"] floating enable
+for_window [title="Preferences"] floating enable
 
 for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
 for_window [title="btm"] floating enable, resize set width 50 ppt height 70 ppt
@@ -77,6 +78,11 @@ for_window [title="dropdown_alacritty"] move absolute position 60 30
 # for animated dropdown terminal
 for_window [title="alacritty_ANIMATED"] move scratchpad, sticky enable
 
+
 # bindsym $mod+u exec ~/.config/sway/scripts/scratchpad "then the command to launch"
+
+# scrennlocker
+#for_window [title="Screensaver"] fullscreen enable
+
 
 

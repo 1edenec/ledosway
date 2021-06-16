@@ -55,6 +55,9 @@ alias running_services="systemctl list-units --type=service --state=running"
 alias zshalias="nvim $ZDOTDIR/.aliases"
 alias torstart="sudo systemctl start tor"
 alias torstop="sudo systemctl stop tor"
+alias polt='curl wttr.in/Poltavskaya\?format\=3'
+alias poltF='curl wttr.in/Poltavskaya'
+alias poltG='curl v2.wttr.in/Poltavskaya'
 
 # paste output to termbin
 alias tb="nc termbin.com 9999"
@@ -105,35 +108,35 @@ alias poweroff='veracrypt -d && systemctl poweroff'
 
 # распаковать архив не указывая тип распаковщика
 function ex {
- if [ -z "$1" ]; then
-	# display usage if no parameters given
-	echo "Использование: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
- else
-	if [ -f "$1" ] ; then
-		NAME=${1%.*}
-		#mkdir $NAME && cd $NAME
-		case "$1" in
-			*.tar.bz2)   tar xvjf ./"$1"    ;;
-			*.tar.gz)    tar xvzf ./"$1"    ;;
-			*.tar.xz)    tar xvJf ./"$1"    ;;
-			*.lzma)      unlzma ./"$1"      ;;
-			*.bz2)       bunzip2 ./"$1"     ;;
-			*.rar)       unrar x -ad ./"$1" ;;
-			*.gz)        gunzip ./"$1"      ;;
-			*.tar)       tar xvf ./"$1"     ;;
-			*.tbz2)      tar xvjf ./"$1"    ;;
-			*.tgz)       tar xvzf ./"$1"    ;;
-			*.zip)       unzip ./"$1"       ;;
-			*.Z)         uncompress ./"$1"  ;;
-			*.7z)        7z x ./"$1"        ;;
-			*.xz)        unxz ./"$1"        ;;
-			*.exe)       cabextract ./"$1"  ;;
-			*)           echo "ex: '$1' - Не может быть распакован" ;;
-		esac
+	if [ -z "$1" ]; then
+		# display usage if no parameters given
+		echo "Использование: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
 	else
-		echo "'$1' - не является допустимым файлом"
+		if [ -f "$1" ] ; then
+			NAME=${1%.*}
+			#mkdir $NAME && cd $NAME
+			case "$1" in
+				*.tar.bz2)   tar xvjf ./"$1"    ;;
+				*.tar.gz)    tar xvzf ./"$1"    ;;
+				*.tar.xz)    tar xvJf ./"$1"    ;;
+				*.lzma)      unlzma ./"$1"      ;;
+				*.bz2)       bunzip2 ./"$1"     ;;
+				*.rar)       unrar x -ad ./"$1" ;;
+				*.gz)        gunzip ./"$1"      ;;
+				*.tar)       tar xvf ./"$1"     ;;
+				*.tbz2)      tar xvjf ./"$1"    ;;
+				*.tgz)       tar xvzf ./"$1"    ;;
+				*.zip)       unzip ./"$1"       ;;
+				*.Z)         uncompress ./"$1"  ;;
+				*.7z)        7z x ./"$1"        ;;
+				*.xz)        unxz ./"$1"        ;;
+				*.exe)       cabextract ./"$1"  ;;
+				*)           echo "ex: '$1' - Не может быть распакован" ;;
+			esac
+		else
+			echo "'$1' - не является допустимым файлом"
+		fi
 	fi
-fi
 }
 
 # Упаковка в архив командой pk 7z /что/мы/пакуем имя_файла.7z
@@ -178,15 +181,15 @@ mp3 () {
 }
 # mp3p https://www.youtube.com/watch?v=-F7A24f6gNc&list=RD-F7A24f6gNc
 mp3p () {
-    youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o '~/Music/youtube/%(playlist)s/%(title)s.%(ext)s' "$1"
+	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o '~/Music/youtube/%(playlist)s/%(title)s.%(ext)s' "$1"
 }
 
 se() {
-    du -a ~/.local/bin ~/.config | awk '{print $2}'| fzf | xargs -r $EDITOR
+	du -a ~/.local/bin ~/.config | awk '{print $2}'| fzf | xargs -r $EDITOR
 }
 
 localip(){
-    ip route get 8.8.8.8 | head -1 | awk '{print $7}'
+	ip route get 8.8.8.8 | head -1 | awk '{print $7}'
 }
 
 publicip(){
@@ -194,40 +197,51 @@ publicip(){
 }
 
 
-paruI(){
-	paru -Slq | fzf -m  --reverse --preview 'paru -Si {1}' | xargs -ro paru -S
+
+yayI(){
+	yay -Slq | fzf -m  --reverse --preview 'yay -Si {1}' | xargs -ro yay -S
 }
 
-paruR(){
-paru -Qqe | fzf -m --reverse --preview 'paru -Si {1}' | xargs -ro paru -R
+yayR(){
+	yay -Qqe | fzf -m --reverse --preview 'yay -Si {1}' | xargs -ro yay -R
 }
+
+
+
+# paruI(){
+# 	paru -Slq | fzf -m  --reverse --preview 'paru -Si {1}' | xargs -ro paru -S
+# }
+
+# paruR(){
+# paru -Qqe | fzf -m --reverse --preview 'paru -Si {1}' | xargs -ro paru -R
+# }
 
 # fd - cd to selected directory
 fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
+	local dir
+	dir=$(find ${1:-.} -path '*/\.*' -prune \
+		-o -type d -print 2> /dev/null | fzf +m) &&
+		cd "$dir"
+	}
 
 # fda - including hidden directories
 fda() {
-  local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+	local dir
+	dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
 
 # fh - repeat history
 fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+	eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
 
 #  Handy bash/zsh shell function to list files by mime-type in current directory
 # to show video files, run: list video
 list ()
-         {
-             find . -maxdepth 20 | file -if- | grep "$1" | awk -F: '{printf "%s ", $1}' | nnn
-         }
+{
+	find . -maxdepth 20 | file -if- | grep "$1" | awk -F: '{printf "%s ", $1}' | nnn
+}
 
 # PROG: aDisplay the size of all dirs at $PWD
 function dirsize()
@@ -238,10 +252,10 @@ function dirsize()
 		dir=$1
 	fi
 	find $dir -type d -maxdepth 1 -mindepth 1 -exec du -sh '{}' \; 2>/dev/null \
-	| perl -pe "s/\t.*\/(.*)$/\t$(echo '\033[01;32m')\1$(echo '\033[0m')/gi"
-	echo
-	echo "Total: " $(du -sh $dir 2>/dev/null | awk '{print $1}')
-}
+		| perl -pe "s/\t.*\/(.*)$/\t$(echo '\033[01;32m')\1$(echo '\033[0m')/gi"
+			echo
+			echo "Total: " $(du -sh $dir 2>/dev/null | awk '{print $1}')
+		}
 
 
 # SEARCH: summarized google, ggogle, mggogle, agoogle and fm
@@ -249,43 +263,43 @@ function search()
 {
 	case "$1" in
 		-g) ${BROWSER:-lynx} http://www.google.com/search\?q=$2
-		;;
+			;;
 		-u) ${BROWSER:-lynx} http://groups.google.com/groups\?q=$2
-		;;
+			;;
 		-m) ${BROWSER:-lynx} http://groups.google.com/groups\?selm=$2
-		;;
+			;;
 		-a) ${BROWSER:-lynx} http://groups.google.com/groups\?as_uauthors=$2
-		;;
+			;;
 		-c) ${BROWSER:-lynx} http://search.cpan.org/search\?query=$2\&mode=module
-		;;
+			;;
 		-f) ${BROWSER:-lynx} http://freshmeat.net/search/\?q=$2\&section=projects
-		;;
+			;;
 		-F) ${BROWSER:-lynx} http://www.filewatcher.com/\?q=$2
-		;;
+			;;
 		-G) ${BROWSER:-lynx} http://www.rommel.stw.uni-erlangen.de/~fejf/cgi-bin/pfs-web.pl\?filter-search_file=$2
-		;;
+			;;
 		-s) ${BROWSER:-lynx} http://sourceforge.net/search/\?type=soft\&q=$2
-		;;
+			;;
 		-w) ${BROWSER:-lynx} http://de.wikipedia.org/wiki/$2
-		;;
+			;;
 		-W) ${BROWSER:-lynx} http://en.wikipedia.org/wiki/$2
-		;;
+			;;
 		-d) lynx -source "http://dict.leo.org?$2" | grep -i "TABLE.*/TABLE" | sed "s/^.*\(<TABLE.*TABLE>\).*$/<HTML><BODY>\1<\/BODY><\/HTML>/" | lynx -stdin -dump -width=$COLUMNS -nolist;
-		;;
+			;;
 		*)
-		  echo "Usage: $0 {-g | -u | -m | -a | -f | -c | -F | -s | -w | -W | -d}"
-		  echo "	-g:  Searching for keyword in google.com"
-		  echo "	-u:  Searching for keyword in groups.google.com"
-		  echo "	-m:  Searching for message-id in groups.google.com"
-		  echo "	-a:  Searching for Authors in groups.google.com"
-		  echo "	-c:  Searching for Modules on cpan.org."
-		  echo "	-f:  Searching for projects on Freshmeat."
-		  echo "	-F:  Searching for packages on FileWatcher."
-		  echo "	-G:  Gentoo file search."
-		  echo "	-s:  Searching for software on Sourceforge."
-		  echo "	-w:  Searching for keyword at wikipedia (german)."
-		  echo "	-W:  Searching for keyword at wikipedia (english)."
-		  echo "	-d:  Query dict.leo.org ;)"
+			echo "Usage: $0 {-g | -u | -m | -a | -f | -c | -F | -s | -w | -W | -d}"
+			echo "	-g:  Searching for keyword in google.com"
+			echo "	-u:  Searching for keyword in groups.google.com"
+			echo "	-m:  Searching for message-id in groups.google.com"
+			echo "	-a:  Searching for Authors in groups.google.com"
+			echo "	-c:  Searching for Modules on cpan.org."
+			echo "	-f:  Searching for projects on Freshmeat."
+			echo "	-F:  Searching for packages on FileWatcher."
+			echo "	-G:  Gentoo file search."
+			echo "	-s:  Searching for software on Sourceforge."
+			echo "	-w:  Searching for keyword at wikipedia (german)."
+			echo "	-W:  Searching for keyword at wikipedia (english)."
+			echo "	-d:  Query dict.leo.org ;)"
 	esac
 }
 

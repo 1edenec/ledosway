@@ -2,7 +2,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-   # monitor = 0
+    #monitor = 0
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -64,7 +64,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color= "#123456"
+    #frame_color= "#123456"
 
     # Define a color for the separator.
     # possible values are:
@@ -176,7 +176,7 @@
     max_icon_size = 128
 
     # Paths to default icons.
-    icon_path =/home/led/.icons/oomox-aglia_led/48x48/status/
+    icon_path =/usr/share/icons/oomox-aglia_led/48x48/status/
 
     ### History ###
 

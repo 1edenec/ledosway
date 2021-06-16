@@ -33,6 +33,7 @@
 
 
 #waybar {
+	/*border-radius: 40;*/
 	font-family: UbuntuMono Nerd Font;
     font-size: 14pt;
     min-height: 0;
@@ -146,6 +147,7 @@ label:focus {
 
 
 #network{
+/*font-family: Iosevka;*/
 margin-right: 15px;
 margin-left: 5px;
 }

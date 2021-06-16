@@ -10,6 +10,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export XDG_SCREENSHOTS_DIR=$HOME/Pictures/Screen
 
 # Adds `~/.local/bin` to $PATH
+#export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 # Default programs:
@@ -63,5 +65,7 @@ export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1) # red
 export LESS_TERMCAP_ue=$(tput sgr0)
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me=$(tput sgr0)
+
+#PATH="/usr/sbin:/sbin:/bin:/usr/games:$PATH"
 
 [[ `tty` == "/dev/tty1" ]] && exec sway

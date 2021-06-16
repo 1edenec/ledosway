@@ -1,11 +1,14 @@
 [Desktop Entry]
-Name=IMV
+Name=imv
 GenericName=Image viewer
-Comment=Shows images
-Exec=imv %F
+GenericName[en_US]=Image viewer
+Comment=Fast freeimage-based Image Viewer
+Exec=imviewer.sh %F
+NoDisplay=true
 Terminal=false
 Type=Application
-Keywords=Text;editor;
-Icon=appimagekit-xnviewmp
-Categories=Utility;TextEditor;
-StartupNotify=false
+Categories=Graphics;2DGraphics;Viewer;
+MimeType=image/bmp;image/gif;image/jpeg;image/jpg;image/pjpeg;image/png;image/tiff;image/x-bmp;image/x-pcx;image/x-png;image/x-portable-anymap;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-tga;image/x-xbitmap;
+Name[en_US]=imv
+Icon=multimedia-photo-viewer
+Keywords=photo;picture;
