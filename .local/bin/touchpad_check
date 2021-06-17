@@ -5,6 +5,9 @@
 # wait while sway is starting
 sleep 5
 
+# show notification use false if no need
+NOTIFICATION=True
+
 # Check if mouse  connected
 # I'm on sway, so
 if [ -n $(pgrep -x sway)  ]
@@ -15,9 +18,9 @@ then
 	if [ $(ls /dev/input | grep mouse | wc -l) -gt 2 ]
 	then
 		swaymsg input type:touchpad events disabled
-		dunstify "SYSTEM:" "Touchpad disabled"
+		$NOTIFICATION && dunstify "SYSTEM:" "Touchpad disabled"
 	else
-		dunstify "SYSTEM:" "No mouse found"
+		$NOTIFICATION && dunstify "SYSTEM:" "No mouse found"
 	fi
 fi
 
