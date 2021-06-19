@@ -192,10 +192,10 @@ inoremap <S-Tab> <C-R>=SuperCleverTab()<cr>
 " Автоматически перечитывать конфигурацию VIM после сохранения
 	autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 " When shortcut files are updated, renew bash and ranger configs with new material:
-	"autocmd BufWritePost files,directories !shortcuts
+	autocmd BufWritePost files,directories !shortcuts
 " Run xrdb whenever Xdefaults or Xresources are updated.
-	"autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 " Update binds when sxhkdrc is updated.
-	"autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 

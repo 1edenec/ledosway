@@ -1,27 +1,35 @@
-# Auth with polkit-gnome:
-#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+### AUTOSTART APPS
 
-# Desktop notifications
-#exec mako
+
+### Idle configuration
+#$1 - timeout to lock
+#$2 - timeout to screen of
+
+exec ~/.config/sway/scripts/swayidle.sh 300 350
 
 # check mouse connection
-exec_always ~/.local/bin/touchpad_check
+#exec_always ~/.local/bin/touchpad_check
+
+# Clamshell Mode
+set $laptop <eDP-1>
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+exec_always ~/.config/sway/scripts/clamshell.sh
+
 
 # Network Applet
-#exec nm-applet --indicator
 
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-
-### Idle configuration
-
-exec ~/.config/sway/scripts/swayidle.sh
-
 # Welcome App
 #exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # Sway Fader
 # exec python3 ~/.config/sway/scripts/swayfader.py
+
+
+

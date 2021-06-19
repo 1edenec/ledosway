@@ -2,9 +2,6 @@
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" theme
-Plug 'rose-pine/neovim'
-
 " StartPage
 Plug 'mhinz/vim-startify'
 
@@ -26,6 +23,11 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
-" sxhkd
-" Plug 'kovetskiy/sxhkd-vim'
 
+Plug 'kovetskiy/sxhkd-vim'
+
+" go IDE
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+"Plug 'ycm-core/YouCompleteMe'

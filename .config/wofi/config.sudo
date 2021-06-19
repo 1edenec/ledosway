@@ -1,6 +1,0 @@
-style=/home/led/.config/wofi/style.sudo.css
-hide_scroll=true
-show=dmenu
-width=60%
-height=3%
-location=centre

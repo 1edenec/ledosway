@@ -8,14 +8,14 @@ if get(g:, 'deus_termcolors', 256) == 16
   let s:term_black = 0
   let s:term_grey = 8
 else
-  let s:term_red = 204
-  let s:term_green = 114
-  let s:term_yellow = 180
-  let s:term_blue = 39
-  let s:term_purple = 170
+  let s:term_red = 217
+  let s:term_green = 157
+  let s:term_yellow = 1
+  let s:term_blue = 117
+  let s:term_purple = 183
   let s:term_white = 145
   let s:term_black = 235
-  let s:term_grey = 236
+  let s:term_grey = 59
 endif
 
 let g:airline#themes#deused#palette = {}

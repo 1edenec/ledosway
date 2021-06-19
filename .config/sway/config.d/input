@@ -1,3 +1,4 @@
+
 ### Input configuration
 #
 # Example configuration:
@@ -7,6 +8,7 @@
 input type:touchpad {
       dwt enabled
       tap enabled
+	  events disabled_on_external_mouse
 }
 
 # Read `man 5 sway-input` for more information about this section.
@@ -18,7 +20,3 @@ input * {
 	repeat_delay 300
 	repeat_rate 30
 }
-
-
-
-

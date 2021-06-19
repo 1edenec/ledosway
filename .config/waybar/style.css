@@ -36,7 +36,7 @@
 	/*border-radius: 40;*/
 	font-family: UbuntuMono Nerd Font;
     font-size: 14pt;
-    min-height: 0;
+    min-height: 32pt;
     background-color: @background;
     color: @normal;
     transition-property: background-color;
@@ -59,9 +59,9 @@ window#waybar.solo {
 
 
 #workspaces{
-	font-family: Iosevka;
-	font-size: 20pt;
-	font-weight: bold;
+	/* font-family: Iosevka; */
+	/* font-size: 20pt; */
+	/* font-weight: bold; */
 }
 
 #workspaces button {

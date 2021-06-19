@@ -33,8 +33,6 @@ alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1
 alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
-alias lf="lfrun"
-
 alias -s {mp3,m4a,flac}="mpv"
 alias -s {png,jpg,tiff,bmp}="sxiv"
 alias -s {conf,txt}="nvim"
@@ -90,12 +88,9 @@ alias mtr="grc --colour=auto mtr"
 alias zgrep="grc --colour=auto zgrep"
 alias grep='grep --color=auto'
 
-alias ll="grc --colour=auto ls -l"
-alias lsa="grc --colour=auto ls -la"
-alias ls="ls --color=always"
-alias lsn="nnn -dHU"
-alias nnn="nnn -HUx"
-alias sudo_nnn="sudo -E nnn -dHUx"
+alias ll="ls -l --color"
+alias lsa="ls -la --color"
+alias ls="ls --color"
 
 # Clean ass
 alias sorthist='sort -t ";" -k 2 -u $ZDOTDIR/.zhistory | sort -o $ZDOTDIR/.zhistory'
@@ -198,23 +193,23 @@ publicip(){
 
 
 
-yayI(){
-	yay -Slq | fzf -m  --reverse --preview 'yay -Si {1}' | xargs -ro yay -S
-}
-
-yayR(){
-	yay -Qqe | fzf -m --reverse --preview 'yay -Si {1}' | xargs -ro yay -R
-}
-
-
-
-# paruI(){
-# 	paru -Slq | fzf -m  --reverse --preview 'paru -Si {1}' | xargs -ro paru -S
+# yayI(){
+# 	yay -Slq | fzf -m  --reverse --preview 'yay -Si {1}' | xargs -ro yay -S
 # }
 
-# paruR(){
-# paru -Qqe | fzf -m --reverse --preview 'paru -Si {1}' | xargs -ro paru -R
+# yayR(){
+# 	yay -Qqe | fzf -m --reverse --preview 'yay -Si {1}' | xargs -ro yay -Rsnc
 # }
+
+
+paruI(){
+	paru -Slq | fzf -m  --reverse --preview 'paru -Si {1}' | xargs -ro paru -S
+}
+
+paruR(){
+	paru -Qqe | fzf -m --reverse --preview 'paru -Si {1}' | xargs -ro paru -Rsnc
+}
+
 
 # fd - cd to selected directory
 fd() {

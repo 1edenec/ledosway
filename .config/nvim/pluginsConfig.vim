@@ -12,8 +12,8 @@ let g:airline_theme='deused'
 " In addition, you can also choose which path formatter airline uses.
 " This affects how file paths are displayed in each individual tab
 " as well as the current buffer indicator in the upper right.
-"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-"let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 " Separators can be configured independently for the tabline,
 " so here is how you can define shape of tabs:
 

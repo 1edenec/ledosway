@@ -7,31 +7,42 @@
 # check if window available:
 if [[ -n $(swaymsg -t get_tree | grep "dropdown_$1") ]];
 then
-	# echo "Window detected... showing..."
-	swaymsg "[title=dropdown_$1] scratchpad show"
+	echo "Window detected... showing..."
 else
-	# echo "Window not detected... spawning."
+	echo "Window not detected... spawning."
 
 	if [ "$1" == "$TERMINAL" ]
 	then
-
-		swaymsg "exec $TERMINAL -t dropdown_$1"
+		swaymsg "exec $TERMINAL -T dropdown_$1"
 		sleep 0.2
-		swaymsg "[title=dropdown_$1] scratchpad show"
-
-	elif [[ "$1" == "nvim" ]]
-	then
-
-		swaymsg "exec $TERMINAL -t dropdown_$1  -e bash -c 'sleep 0.1 && nvim "$2"' "
-		sleep 0.2
-		swaymsg "[title=dropdown_$1] scratchpad show"
-
+		swaymsg -q "[title=dropdown_$1] mark dropdown_$1"
 	else
-
-		swaymsg "exec $TERMINAL -t dropdown_$1 -e $1"
+		swaymsg "exec $TERMINAL -T dropdown_$1 $1"
 		sleep 0.2
 		swaymsg "[title=dropdown_$1] scratchpad show"
-
 	fi
 
 fi
+
+
+# get monitor geometry (return display_W and display_H)
+eval "$(swaymsg -t get_outputs |\
+	jq -r '.[] | select(.focused==true)|"display_W=\(.rect.width)\ndisplay_H=\(.rect.height)"')"
+
+# get paddings from config
+CONFIG=$HOME/.config/sway/config.d/theme
+GAPS_INN=$(awk '/gaps inner/ {print $3}' "$CONFIG")
+GAPS_OUT=$(awk '/gaps outer/ {print $3}' "$CONFIG")
+
+TERM_W=$((  display_W - GAPS_INN * 2 + GAPS_OUT * 2 ))
+TERM_H=$((  display_H * 33 / 100 ))
+
+TERM_X=0
+TERM_Y=$(( ( display_H - TERM_H ) - 50 ))
+
+swaymsg "[title=dropdown_$1]" resize  set $TERM_W $TERM_H
+swaymsg "[title=dropdown_$1]" move position $TERM_X $TERM_Y
+
+swaymsg -q "[con_mark=dropdown_$1] scratchpad show"
+
+

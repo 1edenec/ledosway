@@ -1,10 +1,8 @@
-#!/bin/bash
+#!/bin/sh
+
 # This script is the SUDO_ASKPASS variable, meaning that it will be used as a
 # password prompt if needed.
-
-# sudo prompt is "$1"
-#prompt="$(echo "$1" | sed -e "s/://g")"
-pass=$(wofi --show=dmenu -P --conf=$HOME/.config/wofi/config.sudo) <&-
+pass=$(echo | bemenu -x -l 0 -p " : ") <&-
 
 if [[ "$pass" != "" ]]
 then
@@ -12,5 +10,4 @@ then
 else
 	exit
 fi
-
 

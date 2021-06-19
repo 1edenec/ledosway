@@ -1,3 +1,4 @@
+### APPS DEFAULTS
 # Assign workspaces
 assign [app_id="librewolf"] 2
 for_window [app_id="librewolf"] focus
@@ -49,11 +50,14 @@ for_window [title="Picture in picture"] floating enable, sticky enable
 
 for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 33ppt height 33ppt, move position 67ppt 67ppt, border pixel 4
 
-for_window [title="Delete Files"] floating enable, sticky enable
-for_window [title="Copy Files"] floating enable, sticky enable
-for_window [title="Overwrite Files"] floating enable, sticky enable
+for_window [title="Delete Files"] floating enable
+for_window [title="Copy Files"] floating enable
+for_window [title="Overwrite Files"] floating enable
+for_window [title="Move files"] floating enable
 for_window [title="Save File"] floating enable
 for_window [title="Preferences"] floating enable
+for_window [title="File Properties"] floating enable
+for_window [title="Execute file"] floating enable
 
 for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
 for_window [title="btm"] floating enable, resize set width 50 ppt height 70 ppt
@@ -67,13 +71,12 @@ for_window [app_id="librewolf" title="librewolf — Sharing Indicator"] kill
 # Inhibit idle
 for_window [app_id="librewolf"] inhibit_idle fullscreen
 
+
+
 # scratchpad rules
 # This is more general structere
-for_window [title="dropdown_*"] move scratchpad
-for_window [title="dropdown_*"] sticky enable
-# this is for the special tmuxdd command
-for_window [title="dropdown_alacritty"] resize set 1800 450
-for_window [title="dropdown_alacritty"] move absolute position 60 30
+ for_window [title="dropdown_*"] move scratchpad
+ for_window [title="dropdown_*"] sticky enable
 
 # for animated dropdown terminal
 for_window [title="alacritty_ANIMATED"] move scratchpad, sticky enable
@@ -83,6 +86,4 @@ for_window [title="alacritty_ANIMATED"] move scratchpad, sticky enable
 
 # scrennlocker
 #for_window [title="Screensaver"] fullscreen enable
-
-
 
