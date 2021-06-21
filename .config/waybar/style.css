@@ -34,7 +34,7 @@
 
 #waybar {
 	/*border-radius: 40;*/
-	font-family: UbuntuMono Nerd Font;
+	font-family: monospace;
     font-size: 14pt;
     min-height: 32pt;
     background-color: @background;
@@ -57,12 +57,6 @@ window#waybar.solo {
 }
 */
 
-
-#workspaces{
-	/* font-family: Iosevka; */
-	/* font-size: 20pt; */
-	/* font-weight: bold; */
-}
 
 #workspaces button {
     padding: 0 10px;
@@ -90,7 +84,6 @@ window#waybar.solo {
     background-color: @grey1;
     border-bottom: 3px solid @normal;
 }
-
 #clock,
 #battery,
 #backlight,
@@ -119,16 +112,29 @@ window#waybar.solo {
 }
 
 
+
 #battery.charging, #battery.plugged {
 	background-color: @background;
     color: @normal;
 }
+
 
 @keyframes blink {
     to {
         background-color: @normal;
         color: #000000;
     }
+}
+
+
+#language{
+margin: 0px 2px
+}
+
+
+#battery{
+	margin-right: 0px;
+	margin-left: 0px;
 }
 
 #battery.critical:not(.charging) {
@@ -146,13 +152,6 @@ label:focus {
 }
 
 
-#network{
-/*font-family: Iosevka;*/
-margin-right: 15px;
-margin-left: 5px;
-}
-
-
 #network.disconnected {
     background-color: @yellow0;
 	color: @background;
@@ -164,15 +163,11 @@ margin-left: 5px;
 }
 
 #idle_inhibitor{
-	margin-right: 13px;
-	margin-left: 8px;
+	margin-right: 15px;
+	margin-left: 5px;
 }
 
-#language {
-    color: @normal;
-    padding: 0 3px;
-    margin: 0 3px;
-    min-width: 10px;
-}
+
+
 
 

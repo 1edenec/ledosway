@@ -70,8 +70,8 @@
 		"idle_inhibitor": {
 			"format": "{icon}",
 			"format-icons": {
-				"activated": " ",
-				"deactivated": " "
+				"activated": "",
+				"deactivated": ""
 			}
 		},
 
@@ -102,6 +102,7 @@
 
 
 		"battery": {
+
 			"states": {
 				"full": 100,
 				"good": 90,
@@ -109,12 +110,12 @@
 				"critical": 15
 			},
 
-			"format": "",
-			"format-charging": "{capacity}%  ",
-			"format-charging-good": "",
-			"format-discharging": "{capacity}%  ",
+			"format": "{icon} {capacity}%",
+			"format-discharging": "{capacity}%",
+			"format-charging": "{capacity}%",
+			"format-charging-full": "",
 			"format-plugged-full": "",
-			"format-plugged": "{capacity}%  ",
+			"format-plugged": "{capacity}% ",
 			"format-alt": "{time} {icon}",
 			"format-good": "", // An empty format will hide the module
 			"format-full": "",
@@ -126,7 +127,7 @@
 			// "interface": "wlp2*", // (Optional) To force the use of this interface
 			//"format-wifi": "{icon} {essid} ({signalStrength}%)",
 			"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-			"format-wifi": "{essid} ({signalStrength}%)",
+			"format-wifi": " {essid}({signalStrength}%)",
 			"format-linked": "{ifname} (No IP) ",
 			"format-disconnected": "Disconnected ⚠",
 			"format-alt": "{ifname}: {ipaddr}/{cidr}",
