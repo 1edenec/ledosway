@@ -97,9 +97,7 @@ bip(){
 get_status
 
 case  $1 in
-	mute)	mute_vol \
-		&&	(message ; polybar-msg hook pipewire 2 > /dev/null)
-			;;
+	mute)	mute_vol && message ;;
 	up)		up_vol		&&	message; $USE_SOUND && bip	;;
 	down)	down_vol	&&	message; $USE_SOUND && bip	;;
 	*)		usage	;;
