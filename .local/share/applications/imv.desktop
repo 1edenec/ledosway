@@ -3,7 +3,7 @@ Name=imv
 GenericName=Image viewer
 GenericName[en_US]=Image viewer
 Comment=Fast freeimage-based Image Viewer
-Exec=sh -c 'imv open $(dirname  %F)'
+Exec=env FNAME=%U sh -c "imv -n \"${FNAME}\" \"$(dirname \"${FNAME}\")\""
 NoDisplay=true
 Terminal=false
 Type=Application
