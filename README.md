@@ -6,10 +6,10 @@
 - sway
 - swaylock
 - swayidle
-- wofi (as launcher)
+- dmenu (as launcher)
 - pcmanfm-qt
 - neovim
-- alacritty
+- foot
 - lxappearance
 - qt5ct
 - fzf
