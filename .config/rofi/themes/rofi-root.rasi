@@ -1,0 +1,69 @@
+/**
+ * Rofi version: 1.6.1
+ **/
+* {
+    foreground:                  #F84547;
+    lightfg:                     #586875;
+	normal-foreground:           var(foreground);
+    active-foreground:           var(foreground);
+    urgent-foreground:			 var(foreground);
+    selected-normal-foreground:  var(foreground);
+    selected-active-foreground:  #9BAEC8;
+    selected-urgent-foreground:  #9BAEC8;
+    alternate-normal-foreground: var(foreground);
+    alternate-active-foreground: var(active-foreground);
+    alternate-urgent-foreground: var(urgent-foreground);
+
+	background:                  #2A253E;
+    lightbg:                     #EEE8D5;
+    normal-background:           var(background);
+    active-background:           var(background);
+    urgent-background:           var(background);
+    selected-normal-background:  var(background);
+    selected-active-background:  var(background);
+    selected-urgent-background:  var(background);
+    alternate-normal-background: var(background);
+    alternate-active-background: var(background);
+    alternate-urgent-background: var(background);
+    background-color:            #00000000;
+
+	separatorcolor:              var(foreground);
+    border-color:                var(foreground);
+    spacing:                     2;
+}
+window {
+    padding:          5;
+    background-color: var(background);
+    border:           3;
+}
+
+inputbar {
+	font: "monospace 20";
+    padding:    1px ;
+    spacing:    0px ;
+    text-color: var(normal-foreground);
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+entry {
+    text-color:        var(normal-foreground);
+    spacing:           0;
+    placeholder-color: rgba ( 128, 128, 128, 100 % );
+    placeholder: "Enter nuclear missle pass, plz";
+	font: inherit;
+}
+prompt {
+	font: inherit;
+    spacing:    10;
+    text-color: var(normal-foreground);
+}
+textbox-prompt-colon {
+	font: inherit;
+    margin:     0px 0.1000em 0.0000em 0.1000em ;
+    expand:     false;
+	str: ":";
+    text-color: inherit;
+}

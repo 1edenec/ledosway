@@ -1,0 +1,27 @@
+#!/bin/bash
+# script to start qBitTorrent-nox with rofi
+
+DAEMON="qbittorrent-nox"
+dpid="1408"
+HEADER="qBitTorrent"
+STATUS=$( pgrep -x  "$DAEMON")
+port=$(awk '/WebUI\\Port=/ {gsub("[aA-zZ]{10}.","",$1) ;print$1}' $HOME/.config/qBittorrent/qBittorrent.conf)
+rofiShow="rofi -dmenu -l 2 -i -p"
+
+askToOff(){
+	choice=$(printf "No\\nYes" | $rofiShow "Kill $DAEMON?") &&
+		[ "$choice" = "Yes" ] \
+		&& ( killall -q $DAEMON && dunstify "$HEADER" "$DAEMON killed" ) \
+		|| dunstify -r $dpid "$HEADER" "$DAEMON still running on localhost:$port"
+}
+
+askToOn(){
+	choice=$(printf "No\\nYes" | $rofiShow "Turn on $DAEMON?") &&
+		[ "$choice" = "Yes" ] \
+		&& ( $DAEMON --daemon && dunstify "$HEADER" "$DAEMON running on localhost:$port" ) \
+		|| dunstify -r $dpid "$HEADER" "$DAEMON still dead"
+}
+
+[ "$STATUS" = "" ] && askToOn || askToOff
+
+

@@ -1,9 +1,10 @@
 [Desktop Entry]
 Name=Neovim
 GenericName=Text Editor
+GenericName[de]=Texteditor
 Comment=Edit text files
 TryExec=nvim
-Exec=alacritty -e bash -c "sleep 0.1 && nvim %F"
+Exec=foot nvim %F
 Terminal=false
 Type=Application
 Keywords=Text;editor;

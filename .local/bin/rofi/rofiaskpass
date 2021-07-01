@@ -1,8 +1,10 @@
-#!/bin/sh
-
+#!/bin/bash
 # This script is the SUDO_ASKPASS variable, meaning that it will be used as a
 # password prompt if needed.
-pass=$(echo | bemenu -x -l 0 -p " : ") <&-
+
+# sudo prompt is "$1"
+# prompt="$(echo "$1" | sed -e "s/://g")"
+pass=$(echo | rofi -show -dmenu -i -l 0 -password -p "" -theme rofi-root) <&-
 
 if [[ "$pass" != "" ]]
 then
@@ -10,4 +12,5 @@ then
 else
 	exit
 fi
+
 

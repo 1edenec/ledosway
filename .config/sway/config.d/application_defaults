@@ -48,8 +48,11 @@ for_window [app_id="librewolf" title="Library"] floating enable, border pixel 1,
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [title="Picture in picture"] floating enable, sticky enable
 
-for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 33ppt height 33ppt, move position 67ppt 67ppt, border pixel 4
+# virt-manager
+for_window [title="Virtual Machine Manager"] floating enable
+for_window [title="QEMU\/KVM - Connection Details"] floating enable
 
+for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 33ppt height 33ppt, move position 67ppt 67ppt, border pixel 4
 for_window [title="Delete Files"] floating enable
 for_window [title="Copy Files"] floating enable
 for_window [title="Overwrite Files"] floating enable
@@ -57,6 +60,7 @@ for_window [title="Move files"] floating enable
 for_window [title="Save File"] floating enable
 for_window [title="Preferences"] floating enable
 for_window [title="File Properties"] floating enable
+for_window [title="Mount"] floating enable
 for_window [title="Execute file"] floating enable
 
 for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt

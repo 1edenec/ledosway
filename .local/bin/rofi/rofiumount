@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# A rofi prompt to unmount drives.
+# Provides you with mounted partitions, select one to unmount.
+# Drives mounted at /, /boot and /home will not be options to unmount.
+
+# assign icons for dunst
+iconUSB="removable-media"
+iconError="dialog-information"
+iconAndroid="smartphone"
+
+# just to make rofi looks unify
+rofiSet="rofi -dmenu -i -width 600 -lines 6 -p"
+
+usbDrives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$2=="part"&&$4!~/\/boot|\/mnt\/timemachine|\/mnt\/stor|\/home$|SWAP/&&length($4)>1{printf "禍 %s (%s)\n",$4,$3}')
+
+andDrives="$(awk '$1=="simple-mtpfs"{print" "$2}' < /etc/mtab)"
+
+if [[ $usbDrives != ""  &&  $andDrives != "" ]]
+then
+	chosen=$(echo -e "${usbDrives}\n${andDrives}" | $rofiSet "Umount which drive?"  )
+elif [[ $usbDrives == ""  &&  $andDrives != "" ]]
+then
+	chosen=$(echo -e "${andDrives}" | $rofiSet "Umount which drive?"  )
+elif [[ $usbDrives != ""  &&  $andDrives == "" ]]
+then
+	chosen=$(echo -e "${usbDrives}" | $rofiSet "Umount which drive?"  )
+else
+	(dunstify "USB umounting" "No mounted USB or android device detected" -i $iconError) && exit
+fi
+
+[ -z "$chosen" ] && exit
+
+case $chosen in
+	*)andTrue="-l"; icon=$iconUSB ;;
+esac
+
+chosen=$(echo "$chosen" | awk '{print$2}')
+	sudo -A umount "$andTrue" "$chosen" && dunstify "USB unmounting" "$chosen unmounted." -i $icon
+

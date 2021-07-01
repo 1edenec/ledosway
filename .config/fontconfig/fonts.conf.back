@@ -4,35 +4,36 @@
 	<alias>
 		<family>serif</family>
 		<prefer>
-			<family>JetBrains Mono Medium</family>
+			<family>UbuntuMono Nerd Font</family>
+			<family>Linux Libertine</family>
 			<family>Joy Pixels</family>
 			<family>Noto Color Emoji</family>
-			<family>FiraCode Nerd Font</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>sans-serif</family>
 		<prefer>
-			<family>JetBrains Mono Medium</family>
+			<family>UbuntuMono Nerd Font</family>
+			<family>Linux Biolinum</family>
 			<family>Joy Pixels</family>
 			<family>Noto Color Emoji</family>
-			<family>FiraCode Nerd Font</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>sans</family>
 		<prefer>
-			<family>JetBrains Mono Medium</family>
+			<family>UbuntuMono Nerd Font</family>
+			<family>Linux Biolinum</family>
 			<family>Joy Pixels</family>
 			<family>Noto Color Emoji</family>
-			<family>FiraCode Nerd Font</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>JetBrains Mono Medium</family>
-			<family>FiraCode Nerd Font</family>
+			<family>UbuntuMono Nerd Font</family>
+			<family>Noto Sans Mono</family>
+			<family>Liberation Mono</family>
 		</prefer>
 	</alias>
 </fontconfig>

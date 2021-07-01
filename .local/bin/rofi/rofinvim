@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DIR="$HOME/.local/bin/"
+
+find $DIR -type f,l | \
+	sed 's/\/.*\///' | \
+	rofi  -dmenu -columns 3 -l 10 -p " " | \
+	xargs -r which | xargs -r $TERMINAL nvim
+
+
+

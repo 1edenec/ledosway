@@ -193,109 +193,12 @@ publicip(){
 
 
 
-# yayI(){
-# 	yay -Slq | fzf -m  --reverse --preview 'yay -Si {1}' | xargs -ro yay -S
-# }
-
-# yayR(){
-# 	yay -Qqe | fzf -m --reverse --preview 'yay -Si {1}' | xargs -ro yay -Rsnc
-# }
-
-
 paruI(){
 	paru -Slq | fzf -m  --reverse --preview 'paru -Si {1}' | xargs -ro paru -S
 }
 
 paruR(){
 	paru -Qqe | fzf -m --reverse --preview 'paru -Si {1}' | xargs -ro paru -Rsnc
-}
-
-
-# fd - cd to selected directory
-fd() {
-	local dir
-	dir=$(find ${1:-.} -path '*/\.*' -prune \
-		-o -type d -print 2> /dev/null | fzf +m) &&
-		cd "$dir"
-	}
-
-# fda - including hidden directories
-fda() {
-	local dir
-	dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
-
-
-# fh - repeat history
-fh() {
-	eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
-}
-
-#  Handy bash/zsh shell function to list files by mime-type in current directory
-# to show video files, run: list video
-list ()
-{
-	find . -maxdepth 20 | file -if- | grep "$1" | awk -F: '{printf "%s ", $1}' | nnn
-}
-
-# PROG: aDisplay the size of all dirs at $PWD
-function dirsize()
-{
-	if [ -z $1 ]; then
-		dir="."
-	else
-		dir=$1
-	fi
-	find $dir -type d -maxdepth 1 -mindepth 1 -exec du -sh '{}' \; 2>/dev/null \
-		| perl -pe "s/\t.*\/(.*)$/\t$(echo '\033[01;32m')\1$(echo '\033[0m')/gi"
-			echo
-			echo "Total: " $(du -sh $dir 2>/dev/null | awk '{print $1}')
-		}
-
-
-# SEARCH: summarized google, ggogle, mggogle, agoogle and fm
-function search()
-{
-	case "$1" in
-		-g) ${BROWSER:-lynx} http://www.google.com/search\?q=$2
-			;;
-		-u) ${BROWSER:-lynx} http://groups.google.com/groups\?q=$2
-			;;
-		-m) ${BROWSER:-lynx} http://groups.google.com/groups\?selm=$2
-			;;
-		-a) ${BROWSER:-lynx} http://groups.google.com/groups\?as_uauthors=$2
-			;;
-		-c) ${BROWSER:-lynx} http://search.cpan.org/search\?query=$2\&mode=module
-			;;
-		-f) ${BROWSER:-lynx} http://freshmeat.net/search/\?q=$2\&section=projects
-			;;
-		-F) ${BROWSER:-lynx} http://www.filewatcher.com/\?q=$2
-			;;
-		-G) ${BROWSER:-lynx} http://www.rommel.stw.uni-erlangen.de/~fejf/cgi-bin/pfs-web.pl\?filter-search_file=$2
-			;;
-		-s) ${BROWSER:-lynx} http://sourceforge.net/search/\?type=soft\&q=$2
-			;;
-		-w) ${BROWSER:-lynx} http://de.wikipedia.org/wiki/$2
-			;;
-		-W) ${BROWSER:-lynx} http://en.wikipedia.org/wiki/$2
-			;;
-		-d) lynx -source "http://dict.leo.org?$2" | grep -i "TABLE.*/TABLE" | sed "s/^.*\(<TABLE.*TABLE>\).*$/<HTML><BODY>\1<\/BODY><\/HTML>/" | lynx -stdin -dump -width=$COLUMNS -nolist;
-			;;
-		*)
-			echo "Usage: $0 {-g | -u | -m | -a | -f | -c | -F | -s | -w | -W | -d}"
-			echo "	-g:  Searching for keyword in google.com"
-			echo "	-u:  Searching for keyword in groups.google.com"
-			echo "	-m:  Searching for message-id in groups.google.com"
-			echo "	-a:  Searching for Authors in groups.google.com"
-			echo "	-c:  Searching for Modules on cpan.org."
-			echo "	-f:  Searching for projects on Freshmeat."
-			echo "	-F:  Searching for packages on FileWatcher."
-			echo "	-G:  Gentoo file search."
-			echo "	-s:  Searching for software on Sourceforge."
-			echo "	-w:  Searching for keyword at wikipedia (german)."
-			echo "	-W:  Searching for keyword at wikipedia (english)."
-			echo "	-d:  Query dict.leo.org ;)"
-	esac
 }
 
 

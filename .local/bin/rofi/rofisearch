@@ -1,0 +1,12 @@
+#!/bin/bash
+
+choice=$(echo | rofi -show -dmenu -i -l 0 -p " " ) || exit
+
+if [ "$choice" = "" ]; then
+    $BROWSER "https://duckduckgo.com"
+else
+    $BROWSER "https://duckduckgo.com/?q=$choice&t=ffab&atb=v1-1&ia=web"
+	echo  "$choice" >> ~/.local/share/rofisearch.hist
+fi
+
+

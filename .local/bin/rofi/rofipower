@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# rofi-power
+# Use rofi to call systemctl for shutdown, reboot, etc
+
+# 2016 Oliver Kraitschy - http://okraits.de
+
+		#Susp\0icon\x1fsystem-suspend\n\
+		#Hib\0icon\x1fsystem-hibernate\n\
+
+		# Suspend)
+		# 	sleep 0.5
+		# 	$($USE_LOCKER) && "$LOCKER"
+		# 	veracrypt -d
+		# 	systemctl suspend
+		# 	;;
+		# Hibernate)
+		# 	sleep 0.5
+		# 	$($USE_LOCKER) && "$LOCKER"
+		# 	veracrypt -d
+		# 	systemctl hibernate
+		# 	;;
+
+
+OPTIONS="Reboot\0icon\x1fsystem-reboot\n\
+Off\0icon\x1fsystem-shut-down\n\
+Lock\0icon\x1fsystem-lock-screen\n\
+Logout\0icon\x1fsystem-log-out"
+
+LAUNCHER="rofi -dmenu -tokenize -l 1 -i -p Power -width 40 -columns 6 -no-show-match -theme power -disable-history"
+USE_LOCKER="true"
+LOCKER="i3lock-fancy"
+
+option=`echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n'`
+if [ ${#option} -gt 0 ]
+then
+	case $option in
+		Reboot)
+			veracrypt -d
+			systemctl reboot
+			;;
+		Off)
+			veracrypt -d
+			systemctl poweroff -i
+			;;
+		Lock)
+			sleep 0.5
+			"$LOCKER"
+			;;
+		Logout)
+			veracrypt -d
+			swaymsg exit
+			;;
+		*) exit
+			;;
+	esac
+fi
+exit

@@ -15,10 +15,12 @@
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-	set $menu bemenu-run | xargs swaymsg exec
+	#set $menu bemenu-run | xargs swaymsg exec
 	#set $menu wofi | xargs swaymsg exec
+
+	set $menu rofi -modi drun -show | xargs swaymsg exec
 # # powermenu
- 	set $powermenu ~/.config/waybar/scripts/power-menu.sh
+ 	#set $powermenu ~/.config/waybar/scripts/power-menu.sh
 
 ### Key bindings
 #
@@ -33,7 +35,10 @@
     # Start your launcher
     bindsym --to-code $mod+d exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
+	#Edit config with nvim
+    bindsym --to-code $mod+shift+s exec rofinvim
+
+	# Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
@@ -53,11 +58,11 @@
 # Apps
 #
 
-    bindsym --to-code $mod+w exec librewolf
+bindsym --to-code $mod+w exec librewolf
+bindsym --to-code $mod+e exec pcmanfm-qt
+bindsym $mod+F4 exec rofipower
+bindsym --to-code $mod+x exec bemenuvirts
 
-    bindsym --to-code $mod+e exec pcmanfm-qt
-
-	bindsym $mod+F4 exec $powermenu
 #
 # Moving around:
 #
@@ -109,7 +114,6 @@
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-
 
 #
 # Layout stuff:
@@ -207,7 +211,7 @@ bindsym XF86MonBrightnessDown exec brightControl down
     # bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
     # bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
 
-     bindsym Shift+print exec wofiscreen.sh
+     bindsym Shift+print exec rofiscreen
 
 # colorpicker
 	bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# rofi-games
+# to start games with rofi
+
+# to add icon use:
+# option=`echo -en "myentry\0icon\x1ffirefox\n"`
+
+OPTIONS=" SpectrwmArch\n ManjaroKDE\n Win10\n Win10Test"
+
+LAUNCHER='rofi -columns 1 -dmenu -l 4 -i -p Virts:'
+
+option=$(echo -e $OPTIONS | $LAUNCHER | tr -d '\r\n')
+
+case $option in
+	" SpectrwmArch")domen="archlinux_spectrwm";;
+	" ManjaroKDE")domen="manjaroKDE";;
+	" Win10")domen="Win10";;
+	" Win10Test")domen="wintest";;
+	*)exit;;
+esac
+virt-manager --connect qemu:///system --show-domain-console "$domen"
+

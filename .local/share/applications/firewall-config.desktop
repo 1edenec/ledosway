@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Firewall
+Comment=Firewall Configuration
+Icon=firewall-config
+Categories=System;Settings;Security;
+# Translators: These are searchable keywords for the firewall configuration tool
+Keywords=firewall;network;security;iptables;netfilter;
+Exec=sudo -AE /usr/bin/firewall-config
+Type=Application
+StartupNotify=true
+Terminal=false
