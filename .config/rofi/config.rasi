@@ -3,9 +3,9 @@ configuration {
 	sidebar-mode:		true;
 	terminal:			"st";
 	width:				1000;
-	lines:				16;
+	lines:				11;
 	columns:			3;
-	font:				"sans 20";
+	font:				"monospace 20";
 	show-icons:			true;
 	run-command:		"{cmd}";
 	run-shell-command:	"{terminal} -e {cmd}";
@@ -15,8 +15,8 @@ configuration {
 	bw:					2;
 	location:			0;
 	line-margin:		2;
-	display-run: " ";
-	display-drun: " ";
+	display-run: "";
+	display-drun: "";
 	theme: "usual";
 }
 

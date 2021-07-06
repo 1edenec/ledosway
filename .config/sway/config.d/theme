@@ -11,7 +11,7 @@ gaps outer 0
 default_border pixel 2
 
 # Default Font
-font pango:UbuntuMono 14
+font pango:Ubuntu 14
 
 # Thin borders:
 smart_borders on

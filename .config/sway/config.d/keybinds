@@ -59,7 +59,7 @@
 #
 
 bindsym --to-code $mod+w exec librewolf
-bindsym --to-code $mod+e exec pcmanfm-qt
+bindsym --to-code $mod+e exec pcmanfmstart
 bindsym $mod+F4 exec rofipower
 bindsym --to-code $mod+x exec bemenuvirts
 

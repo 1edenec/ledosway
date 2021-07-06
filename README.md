@@ -6,7 +6,7 @@
 - sway
 - swaylock
 - swayidle
-- dmenu (as launcher)
+- rofi (as launcher)
 - pcmanfm-qt
 - neovim
 - foot
@@ -24,15 +24,13 @@
 
 ### Fonts:
 - gnu-free-fonts
-- nerd-fonts-dejavu-complete
+- ttf-ubuntu-font-family
 - ttf-font-awesome
-- ttf-jetbrains-mono
+- adobe-source-code-pro-fonts
+- adobe-source-han-sans-jp-fonts
 - ttf-liberation
-- ttf-nerd-fonts-symbols
-- ttf-opensans
-- ttf-roboto
-- ttf-roboto-mono
-- ttf-symbola
+- nerd-fonts-fira-code
+
 ###### Some Fonts Are overkill, but i want them to be on my setup)
 
 ### Cursor themes:

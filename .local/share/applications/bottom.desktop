@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Bottom
+Comment=Show System Processes
+Icon=supermeatboy
+Exec=st -e btm
+Terminal=false
+Categories=System;Monitor;ConsoleOnly;
+Keywords=system;process;task

@@ -34,8 +34,8 @@
 
 #waybar {
 	/*border-radius: 40;*/
-	font-family:monospace;
-    font-size: 14pt;
+	font-family:FiraCode Nerd Font;
+	font-size: 14pt;
     min-height: 32pt;
     background-color: @background;
     color: @normal;

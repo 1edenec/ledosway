@@ -8,20 +8,6 @@
 		#Susp\0icon\x1fsystem-suspend\n\
 		#Hib\0icon\x1fsystem-hibernate\n\
 
-		# Suspend)
-		# 	sleep 0.5
-		# 	$($USE_LOCKER) && "$LOCKER"
-		# 	veracrypt -d
-		# 	systemctl suspend
-		# 	;;
-		# Hibernate)
-		# 	sleep 0.5
-		# 	$($USE_LOCKER) && "$LOCKER"
-		# 	veracrypt -d
-		# 	systemctl hibernate
-		# 	;;
-
-
 OPTIONS="Reboot\0icon\x1fsystem-reboot\n\
 Off\0icon\x1fsystem-shut-down\n\
 Lock\0icon\x1fsystem-lock-screen\n\
@@ -32,7 +18,8 @@ USE_LOCKER="true"
 LOCKER="i3lock-fancy"
 
 option=`echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n'`
-if [ ${#option} -gt 0 ]
+
+if [ ${#option} -gt 0 ] && [[ $(rofi -dmenu -p "Really $option?" -l 2 <<< $'Yes\nNo') == "Yes"  ]]
 then
 	case $option in
 		Reboot)

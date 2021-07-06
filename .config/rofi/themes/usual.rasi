@@ -160,7 +160,6 @@ entry {
 prompt {
     spacing:    10;
     text-color: var(normal-foreground);
-	font: "Hack Nerd Font Mono 20";
 }
 textbox-prompt-colon {
     margin:     0px 0.3000em 0.0000em 0.0000em ;
