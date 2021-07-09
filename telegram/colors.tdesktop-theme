@@ -26,10 +26,10 @@ activeButtonSecondaryFg: #cceeff; // default active button additional text (sele
 activeButtonSecondaryFgOver: #cceeff; // default active button additional text with mouse over
 activeLineFg: #384149; // default active line (like code input field bottom border when you log in and field is focused)
 activeLineFgError: #e48383; // default active line for error state (like code input field bottom border when you log in and you've entered incorrect code)
-lightButtonBg: #97d59b; // default light button background (like buttons in boxes)
-lightButtonBgOver: #bef8c1; // default light button background with mouse over
+lightButtonBg: #1f252a; // default light button background (like buttons in boxes)
+lightButtonBgOver: #384149; // default light button background with mouse over
 lightButtonBgRipple: #c9e4f6; // default light button ripple effect
-lightButtonFg: #1f252a; // default light button text
+lightButtonFg: #97d59b; // default light button text
 lightButtonFgOver: lightButtonFg; // default light button text with mouse over
 attentionButtonFg: #d14e4e; // default attention button text (like confirm button on log out)
 attentionButtonFgOver: #d14e4e; // default attention button text with mouse over
