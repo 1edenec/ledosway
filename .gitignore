@@ -1,0 +1,10 @@
+### Backup ###
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+
+### Folders ###
+.config/sway/wallp/
+
