@@ -90,7 +90,9 @@ message(){
 
 
 bip(){
-	canberra-gtk-play -i audio-volume-change -d "Volume changed"
+	#canberra-gtk-play doesnt work with pipewire, so ffplay instead
+	#canberra-gtk-play -i audio-volume-change -d "Volume changed"
+	ffplay /usr/share/sounds/freedesktop/stereo/bell.oga -autoexit -nodisp -loglevel -24
 }
 
 
