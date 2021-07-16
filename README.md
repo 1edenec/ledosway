@@ -6,7 +6,10 @@
 - sway
 - swaylock
 - swayidle
+- flashfocus
+- autotiling
 - rofi (as launcher)
+- dunst
 - pcmanfm-qt
 - neovim
 - foot
@@ -15,6 +18,7 @@
 - fzf
 - librewolf (nighttab is addon for home/new page)
 - kotatogram-desktop-dynamic-bin (as telegram client)
+
 
 ### Shell:
 - zsh
