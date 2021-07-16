@@ -38,7 +38,7 @@ TERM_W=$((  display_W - GAPS_INN * 2 + GAPS_OUT * 2 ))
 TERM_H=$((  display_H * 33 / 100 ))
 
 TERM_X=0
-TERM_Y=$(( ( display_H - TERM_H ) - 50 ))
+TERM_Y=0
 
 swaymsg "[title=dropdown_$1]" resize  set $TERM_W $TERM_H
 swaymsg "[title=dropdown_$1]" move position $TERM_X $TERM_Y

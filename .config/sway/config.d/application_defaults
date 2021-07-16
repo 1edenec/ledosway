@@ -1,9 +1,9 @@
 ### APPS DEFAULTS
 # Assign workspaces
-assign [app_id="librewolf"] 2
+assign [app_id="librewolf"] 8
 for_window [app_id="librewolf"] focus
 
-assign [class="librewolf"] 2
+assign [class="librewolf"] 8
 for_window [class="librewolf"] focus
 
 assign [app_id="pcmanfm-qt"] 3
@@ -19,8 +19,8 @@ for_window [ class="Steam" ] focus
 for_window [app_id="qt5ct"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 
-
 for_window [app_id="imv"] floating enable
+for_window [app_id="vimiv"] floating enable,  resize set width 80 ppt height 90 ppt
 
 # set floating (nontiling)for apps needing it:
 for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
@@ -33,7 +33,6 @@ for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enabl
 for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
 
 for_window [app_id="qalculate-gtk"] floating enable, resize set width 60 ppt height 50 ppt
-
 
 # set floating for window roles
 for_window [window_role="pop-up"] floating enable
@@ -62,6 +61,12 @@ for_window [title="Preferences"] floating enable
 for_window [title="File Properties"] floating enable
 for_window [title="Mount"] floating enable
 for_window [title="Execute file"] floating enable
+for_window [title="Open database"] floating enable
+
+for_window [app_id="file-roller"] floating enable
+for_window [app_id="wdisplays"] floating enable, resize set width 50 ppt height 70 ppt
+
+for_window [title="PortProton" class="Yad"] floating enable
 
 for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
 for_window [title="btm"] floating enable, resize set width 50 ppt height 70 ppt
@@ -73,8 +78,9 @@ for_window [app_id="librewolf" title="librewolf — Sharing Indicator"] kill
 # for_window [ app_id=".*" ] opacity 0.5
 
 # Inhibit idle
-for_window [app_id="librewolf"] inhibit_idle fullscreen
-
+#for_window [app_id="librewolf"] inhibit_idle fullscreen
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
 
 
 # scratchpad rules
@@ -83,11 +89,19 @@ for_window [app_id="librewolf"] inhibit_idle fullscreen
  for_window [title="dropdown_*"] sticky enable
 
 # for animated dropdown terminal
-for_window [title="alacritty_ANIMATED"] move scratchpad, sticky enable
+#for_window [title="alacritty_ANIMATED"] move scratchpad, sticky enable
 
 
 # bindsym $mod+u exec ~/.config/sway/scripts/scratchpad "then the command to launch"
 
 # scrennlocker
 #for_window [title="Screensaver"] fullscreen enable
+
+# Fade in
+# for_window [app_id=.*] opacity 0
+# for_window [app_id=.*] exec ~/.config/sway/scripts/fadein.sh
+# for_window [app_id=.*] mark fade
+
+# Fade out
+#bindsym --to-code Mod4+Shift+q mark quit; exec ~/.config/sway/scripts/fadeout.sh
 
