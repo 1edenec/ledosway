@@ -1,15 +1,15 @@
 configuration {
 	modi:				"drun,run";
 	sidebar-mode:		true;
-	terminal:			"st";
+	terminal:			"foot";
 	width:				1000;
 	lines:				11;
 	columns:			3;
 	font:				"monospace 20";
 	show-icons:			true;
 	run-command:		"{cmd}";
-	run-shell-command:	"{terminal} -e {cmd}";
-	icon-theme:			"oomox-ledendark";
+	run-shell-command:	"{terminal} {cmd}";
+	icon-theme:			"oomox-aglia_led";
 	case-sensitive:		false;
 	cycle:				true;
 	bw:					2;

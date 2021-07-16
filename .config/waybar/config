@@ -4,7 +4,7 @@
 	"height": 32, // Waybar height (to be removed for auto height)
 	//"width": 1280, // Waybar width
 	//"margin": 4,
-
+	"output" : "eDP-1",
 	"margin-top" : 2,
 	"margin-left" : 4,
 	"margin-right" : 4,
@@ -36,7 +36,7 @@
 
 		"sway/workspaces": {
 			"disable-scroll": true,
-			"all-outputs": false,
+			"all-outputs": true,
 			"format": "{index}",
 
 			"format-icons": {
@@ -126,11 +126,15 @@
 		"network": {
 			// "interface": "wlp2*", // (Optional) To force the use of this interface
 			//"format-wifi": "{icon} {essid} ({signalStrength}%)",
-			"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-			"format-wifi": " {essid}({signalStrength}%)",
-			"format-linked": "{ifname} (No IP) ",
-			"format-disconnected": "Disconnected ⚠",
+			"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+			"format-wifi": " ",
+			"format-linked": "{ifname} (No IP)  ",
+			"format-disconnected": " ",
 			"format-alt": "{ifname}: {ipaddr}/{cidr}",
+			"tooltip-format": "{ifname}",
+			"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+			"tooltip-format-ethernet": "{ifname} ",
+			"tooltip-format-disconnected": "Disconnected",
 			//"format-icons": ["", "", "", "", ""]
 		},
 

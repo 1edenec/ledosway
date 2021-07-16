@@ -153,8 +153,7 @@ label:focus {
 
 
 #network.disconnected {
-    background-color: @yellow0;
-	color: @background;
+	color: @yellow0;
 }
 
 
