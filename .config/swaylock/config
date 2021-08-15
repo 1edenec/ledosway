@@ -1,16 +1,15 @@
-# indicator
-# no-unlock-indicator
-# daemonize
+indicator
 indicator-caps-lock
-# datestr=%A
-image=$HOME/.config/sway/swaylock.png
-scaling=fill
-font=UbuntuMono
-font-size=20
-
-# Ring
+clock
+ignore-empty-password
+show-failed-attempts
+daemonize
+show-keyboard-layout
+font=Ubuntu
+image=/home/led/.config/sway/sway.png
+effect-blur=7x2
 indicator-radius=115
-# line-uses-ring
+
 line-color=#384149
 text-color=#D5D5D5
 inside-color=#38414998
@@ -20,5 +19,9 @@ ring-ver-color=#97D59B98
 ring-color=#384149
 key-hl-color=#97D59B
 separator-color=#384149
-layout-text-color=#eceff4
 line-wrong-color=#FF8080
+
+layout-bg-color=#384149
+#layout-border-color=#97D59B
+layout-text-color=#D5D5D5
+

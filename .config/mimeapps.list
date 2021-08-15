@@ -9,18 +9,18 @@ application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
-x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-NWH860.desktop
 text/plain=nvim.desktop
 image/png=imv.desktop
 image/jpeg=imv.desktop
 inode/directory=pcmanfm-qt.desktop
 inode/x-shortcut=pcmanfm-qt.desktop
-application/x-ms-dos-executable;application/x-wine-extension-msp;application/x-msi;application/x-msdos-program=PortProton.desktop
 text/x-shellscript=nvim.desktop
 application/x-shellscript=nvim.desktop;
+application/x-ms-dos-executable;application/x-wine-extension-msp;application/x-msi;application/x-msdos-program=PortProton.desktop
 
 [Added Associations]
-x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop;
+x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop;userapp-Telegram Desktop-NWH860.desktop;
 text/plain=nvim.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 video/x-msvideo=vlc.desktop;

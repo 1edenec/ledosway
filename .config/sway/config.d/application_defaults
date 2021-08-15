@@ -51,6 +51,7 @@ for_window [title="Picture in picture"] floating enable, sticky enable
 for_window [title="Virtual Machine Manager"] floating enable
 for_window [title="QEMU\/KVM - Connection Details"] floating enable
 
+# support windows
 for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 33ppt height 33ppt, move position 67ppt 67ppt, border pixel 4
 for_window [title="Delete Files"] floating enable
 for_window [title="Copy Files"] floating enable
@@ -87,21 +88,4 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 # This is more general structere
  for_window [title="dropdown_*"] move scratchpad
  for_window [title="dropdown_*"] sticky enable
-
-# for animated dropdown terminal
-#for_window [title="alacritty_ANIMATED"] move scratchpad, sticky enable
-
-
-# bindsym $mod+u exec ~/.config/sway/scripts/scratchpad "then the command to launch"
-
-# scrennlocker
-#for_window [title="Screensaver"] fullscreen enable
-
-# Fade in
-# for_window [app_id=.*] opacity 0
-# for_window [app_id=.*] exec ~/.config/sway/scripts/fadein.sh
-# for_window [app_id=.*] mark fade
-
-# Fade out
-#bindsym --to-code Mod4+Shift+q mark quit; exec ~/.config/sway/scripts/fadeout.sh
 

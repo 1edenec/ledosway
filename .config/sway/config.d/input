@@ -14,7 +14,7 @@ input type:touchpad {
 # Read `man 5 sway-input` for more information about this section.
 #
 
-input * {
+input type:keyboard {
     xkb_layout "us,ru"
     xkb_options "grp_led:caps,grp:shift_caps_switch,terminate:ctrl_alt_bksp"
 	repeat_delay 300

@@ -63,7 +63,7 @@
 
 
 		"sway/mode": {
-			"format": "<span style=\"italic\">{}</span>"
+			"format": " <span style=\"italic\">{}</span> "
 		},
 
 
@@ -95,9 +95,12 @@
 
 
 		"clock": {
+			"interval": 30,
+			"format": "{:%H:%M}",
 			// "timezone": "America/New_York",
 			"tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-			"format-alt": "{:%A, %d-%m-%Y}"
+			"format-alt": "{:%A, %d-%m-%Y}",
+			"on-click-right": "foot pulsemixer"
 		},
 
 
@@ -157,7 +160,7 @@
 				"default": ["", "", ""]
 			},
 			"on-click": "pwControl mute",
-			"on-click-right": "alacritty -e pulsemixer"
+			"on-click-right": "foot pulsemixer"
 		},
 
 }

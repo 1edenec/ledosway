@@ -60,8 +60,8 @@
 
 bindsym --to-code $mod+w exec librewolf
 bindsym --to-code $mod+e exec pcmanfmstart
-bindsym $mod+F4 exec rofipower
-bindsym --to-code $mod+x exec bemenuvirts
+bindsym XF86PowerOff exec rofipower
+bindsym --to-code $mod+x exec rofivirts
 
 #
 # Moving around:
@@ -186,7 +186,7 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
 #
 # Volume
 #
-    bindsym --locked XF86AudioRaiseVolume exec pwControl up
+    bindsym --locked xf86audioraisevolume exec pwcontrol up
     bindsym --locked XF86AudioLowerVolume exec pwControl down
     bindsym --locked XF86AudioMute exec pwControl mute
 
@@ -214,5 +214,5 @@ bindsym XF86MonBrightnessDown exec brightControl down
      bindsym Shift+print exec rofiscreen
 
 # colorpicker
-	bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+	#bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 

@@ -33,16 +33,24 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # if-exists autostarts
 #
 exec {
-    '[ -x "$(command -v flashfocus)" ] && flashfocus | ~/.config/sway/scripts/inactive-windowstransparancy.py'
     #'[ -x "$(command -v wlsunset)" ] && /usr/share/sway/scripts/sunset.sh'
     '[ -x "$(command -v autotiling)" ] && autotiling'
 }
 exec_always {
-    '[ -x "$(command -v spice-vdagent)" ] && spice-vdagent'
+    #'[ -x "$(command -v spice-vdagent)" ] && spice-vdagent'
     # restart kanshi https://github.com/emersion/kanshi/issues/43#issuecomment-531679213
-    '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
+    #'[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
+	'[ -x "$(command -v flashfocus)" ] && killall flashfocus ; flashfocus'
+
 }
 
 
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+	swaybar_command waybar
+}
 
 

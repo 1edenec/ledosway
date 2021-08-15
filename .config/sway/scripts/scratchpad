@@ -5,11 +5,8 @@
 [ -z "$1" ] && exit
 
 # check if window available:
-if [[ -n $(swaymsg -t get_tree | grep "dropdown_$1") ]];
+if [[ -z $(swaymsg -t get_tree | grep "dropdown_$1") ]];
 then
-	echo "Window detected... showing..."
-else
-	echo "Window not detected... spawning."
 
 	if [ "$1" == "$TERMINAL" ]
 	then
@@ -21,7 +18,6 @@ else
 		sleep 0.2
 		swaymsg "[title=dropdown_$1] scratchpad show"
 	fi
-
 fi
 
 

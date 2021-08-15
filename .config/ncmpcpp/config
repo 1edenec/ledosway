@@ -1,7 +1,7 @@
 ###############################################################
 #
 ncmpcpp_directory  = ~/.local/share/ncmpcpp
-#lyrics_directory  = ~/.local/share/ncmpcpp/lyrics
+lyrics_directory  = ~/.local/share/ncmpcpp/lyrics
 
 mpd_host = "127.0.0.1"
 mpd_port = "6600"

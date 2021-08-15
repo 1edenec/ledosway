@@ -19,7 +19,7 @@ setopt HIST_IGNORE_DUPS # ignore dublicates in history
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="$ZDOTDIR/.zhistory"
+HISTFILE="$ZDOTDIR/zhistory"
 
 # Load aliases and shortcuts if existent.
 [ -f "$ZDOTDIR/aliases" ] && source "$ZDOTDIR/aliases"
@@ -98,7 +98,8 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-
+#colorize output with grc. grc package required
+[[ -n /etc/grc.zsh ]] && source /etc/grc.zsh
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh

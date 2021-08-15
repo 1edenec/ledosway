@@ -90,3 +90,10 @@ flash-lone-windows: 'always'
 # rules:
 #   - window-name: ^(?!termite)$
 #     default-opacity: 0.8
+
+
+rules:
+  - app-id: librewolf
+    flash-on-focus: False
+
+
