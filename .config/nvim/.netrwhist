@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/mnt/stor/Xiaomi/hints'
-let g:netrw_dirhist_5='/mnt/stor/Xiaomi'
-let g:netrw_dirhist_4='/mnt/stor'
-let g:netrw_dirhist_3='/mnt/stor/devbad'
-let g:netrw_dirhist_2='/mnt/stor/devbad/go'
-let g:netrw_dirhist_1='/mnt/stor/devbad/go/firstblood'

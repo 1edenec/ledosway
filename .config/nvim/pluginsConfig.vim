@@ -51,19 +51,3 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [ '~/.config/bspwm/bspwmrc', '~/.config/picom/picom.conf','~/.config/kitty/kitty.conf','~/.config/zsh/.zshrc','~/.config/Xresources','~/.config/colors/' ]
 
-"""""""""""
-" NUMBERS "
-"""""""""""
-
-" If you see numbers where they don't belong like in the help menus or other
-" vim plugins be sure to add your plugins to the excludes list like so.
-let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree']
-
-
-""""""""""""
-" MARKDOWN "
-""""""""""""
-
-" Add the following line to to disable the folding configuration:
-let g:vim_markdown_folding_disabled = 1
-
