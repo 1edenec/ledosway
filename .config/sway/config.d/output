@@ -14,14 +14,9 @@ output eDP-1 pos 1920 0
 workspace {
 		1 output eDP-1
 		2 output eDP-1
-		3 output eDP-1
-		4 output eDP-1
-		5 output eDP-1
-		6 output eDP-1
-		7 output eDP-1
 
-		8 output HDMI-A-1
-		9 output HDMI-A-1
+		3 output HDMI-A-1
+		4 output HDMI-A-1
 		0 output HDMI-A-1
 	}
 

@@ -1,19 +1,19 @@
 ### APPS DEFAULTS
 # Assign workspaces
-assign [app_id="librewolf"] 8
+assign [app_id="librewolf"] 3
 for_window [app_id="librewolf"] focus
 
-assign [class="librewolf"] 8
+assign [class="librewolf"] 3
 for_window [class="librewolf"] focus
 
-assign [app_id="pcmanfm-qt"] 3
+assign [app_id="pcmanfm-qt"] 2
 for_window [app_id="pcmanfm-qt"] focus
 
-assign [app_id="kotatogramdesktop"] 5
+assign [app_id="kotatogramdesktop"] 2
 for_window [app_id="kotatogramdesktop"] focus
 for_window [app_id="kotatogram-desktop"] floating enable, resize set width 60 ppt height 50 ppt
 
-assign [ class="Steam" ] 9
+assign [ class="Steam" ] 4
 for_window [ class="Steam" ] focus
 
 for_window [app_id="qt5ct"] floating enable
@@ -80,7 +80,6 @@ for_window [app_id="librewolf" title="librewolf — Sharing Indicator"] kill
 #for_window [app_id="librewolf"] inhibit_idle fullscreen
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
-
 
 # scratchpad rules
 # This is more general structere

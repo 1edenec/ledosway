@@ -21,10 +21,17 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # if-exists autostarts
 #
 exec {
+
     '[ -x "$(command -v autotiling)" ] && autotiling'
 }
+
 exec_always {
 	'[ -x "$(command -v flashfocus)" ] && killall flashfocus ; flashfocus'
+
+	# fix to dunst when session of sway was restarted
+	'[ -x "$(command -v dunst)" ] && pkill dunst'
+	# polkit from lxsession-gtk3
+	'[ -x "$(command -v lxpolkit)" ] && pkill lxpolkit; lxpolkit'
 }
 
 
