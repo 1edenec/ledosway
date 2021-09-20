@@ -114,11 +114,11 @@
 			},
 
 			"format": "{icon} {capacity}%",
-			"format-discharging": "{capacity}%",
-			"format-charging": "{capacity}%",
+			"format-discharging": " {capacity}%",
+			"format-charging": " {capacity}%",
 			"format-charging-full": "",
 			"format-plugged-full": "",
-			"format-plugged": "{capacity}% ",
+			//"format-plugged": "{capacity}%  ",
 			"format-alt": "{time} {icon}",
 			"format-good": "", // An empty format will hide the module
 			"format-full": "",

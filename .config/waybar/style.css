@@ -90,7 +90,7 @@ window#waybar.solo {
 #pulseaudio,
 #tray,
 #mode{
-    padding: 0 2px;
+    padding: 0 4px;
     margin: 0 4px;
     color: @normal;
 
@@ -163,7 +163,7 @@ label:focus {
 }
 
 #idle_inhibitor{
-	margin-right: 15px;
+	margin-right: 10px;
 	margin-left: 5px;
 }
 

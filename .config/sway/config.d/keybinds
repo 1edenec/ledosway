@@ -15,8 +15,6 @@
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-set $menu rofi -modi drun -show | xargs swaymsg exec
-
 ### Key bindings
 #
 # Basics:
@@ -30,7 +28,7 @@ bindsym $mod+Escape exec $configred
 bindsym --to-code $mod+Shift+q kill
 
 # Start your launcher
-bindsym --to-code $mod+d exec $menu
+bindsym --to-code $mod+d exec rofi -modi drun -show
 
 #Edit config with nvim
 bindsym --to-code $mod+shift+s exec rofinvim
