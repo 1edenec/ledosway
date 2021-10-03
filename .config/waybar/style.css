@@ -122,8 +122,8 @@ window#waybar.solo {
 
 @keyframes blink {
     to {
-        background-color: @normal;
-        color: #000000;
+        background-color: @black1;
+        color: @normal;
     }
 }
 
@@ -138,15 +138,50 @@ margin: 0px 2px
 	margin-left: 0px;
 }
 
-#battery.critical:not(.charging) {
-    background-color: @red0;
-    color: @normal;
+
+#battery.charging:not(.full) {
+    background-color: @green1;
+    color: @black1;
     animation-name: blink;
-    animation-duration: 0.5s;
+    animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+
+#battery.discharging {
+    background-color: @magenta0;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+#battery.discharging.warning {
+    background-color: @yellow0;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+#battery.discharging.critical {
+    background-color: @red0;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 
 label:focus {
     background-color: #000000;
