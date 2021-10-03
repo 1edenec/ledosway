@@ -203,6 +203,46 @@ label:focus {
 }
 
 
+#custom-waytime.charging{
+    background-color: @green1;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
+
+#custom-waytime.discharging{
+background-color: @magenta0;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-waytime.dis_warning{
+	background-color: @yellow0;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+#custom-waytime.dis_crit{
+background-color: @red0;
+    color: @black1;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
 

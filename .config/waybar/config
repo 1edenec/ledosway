@@ -20,7 +20,8 @@
 		],
 
 		"modules-center": [
-			"clock"
+			//"clock",
+			"custom/waytime"
 		],
 
 		"modules-right": [
@@ -33,6 +34,17 @@
 		],
 
 	// Modules configuration
+
+	"custom/waytime": {
+
+        "format": "{}",
+		"format-alt": "{alt}",
+		"return-type":"json",
+        "interval": "60",
+        "exec": "$HOME/.config/waybar/scripts/waytime",
+        "signal": 8
+    },
+
 
 		"sway/workspaces": {
 			"disable-scroll": true,
@@ -105,7 +117,6 @@
 
 
 		"battery": {
-
 			"states": {
 				"full": 100,
 				"good": 90,

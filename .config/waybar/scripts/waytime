@@ -1,0 +1,32 @@
+#!/bin/bash
+text=" $(date +%H:%M) "
+alt=" $(date +%a,' '%d-%b-%Y,' '%M:%H) "
+
+battery_level=$(cat /sys/class/power_supply/BAT1/capacity)
+battery_status=$(cat /sys/class/power_supply/BAT1/status)
+
+if [[ $battery_level -ge 97 ]]
+then
+	class=full
+elif [[ $battery_status == Charging ]]
+then
+	class=charging
+elif [[ $battery_status == Discharging && $battery_level -le 10 ]]
+then
+	class=dis_crit
+elif [[ $battery_status == Discharging && $battery_level -le 30 ]]
+then
+	class=dis_warning
+elif [[ $battery_status == Discharging && $battery_level -lt 97 ]]
+then
+	class=discharging
+fi
+
+getcal(){
+for line in {1..7}
+do
+	printf "%s " $(cal -m | sed -n $line"p")\\n
+done
+}
+
+echo {\"text\": \"$text\", \"alt\": \"$alt\", \"class\":\"${class}\", \"tooltip\": \"$(getcal)\" }
