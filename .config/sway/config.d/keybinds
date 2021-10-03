@@ -9,7 +9,7 @@
 	set $right l
 # Your preferred terminal emulator
 	set $term  foot
-	set $configred $term bash -c "sleep 0.2 && nvim ~/.config/sway/"
+	set $configred $term bash -c "sleep 0.5 && nvim ~/.config/sway/"
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened

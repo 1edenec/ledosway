@@ -6,9 +6,16 @@ output * bg ~/.config/sway/sway.png fill
 
 # put screens to position
 #output HDMI-A-1 pos 0 0 mode 1920x1080@75.002Hz bg #000000 solid_color
-output HDMI-A-1 pos 0 0 mode 1920x1080@75.002Hz
-output eDP-1 pos 1920 0
+#output * adaptive_sync on
+output HDMI-A-1 {
+	pos 0 0
+	mode 1920x1080@75.002Hz
+}
 
+output eDP-1 {
+		pos 1920 0
+		adaptive_sync on
+}
 
 # assign workspaces
 workspace {
@@ -18,7 +25,7 @@ workspace {
 		3 output HDMI-A-1
 		4 output HDMI-A-1
 		0 output HDMI-A-1
-	}
+}
 
 # workspace 8 gaps inner 0
 # workspace 9 gaps inner 0

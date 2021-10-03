@@ -20,7 +20,6 @@ for_window [app_id="qt5ct"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 
 for_window [app_id="imv"] floating enable
-for_window [app_id="vimiv"] floating enable,  resize set width 80 ppt height 90 ppt
 
 # set floating (nontiling)for apps needing it:
 for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
@@ -63,6 +62,9 @@ for_window [title="File Properties"] floating enable
 for_window [title="Mount"] floating enable
 for_window [title="Execute file"] floating enable
 for_window [title="Open database"] floating enable
+
+for_window [class="Double Commander" title="Options"] floating enable
+for_window [class="Double Commander" title="Find files"] floating enable
 
 for_window [app_id="file-roller"] floating enable, resize set width 50 ppt height 50 ppt
 for_window [app_id="wdisplays"] floating enable, resize set width 50 ppt height 70 ppt
