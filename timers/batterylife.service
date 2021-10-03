@@ -1,0 +1,7 @@
+[Unit]
+Description=Make notification when battery is below 10%
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/batterylife
+

@@ -1,0 +1,13 @@
+[Unit]
+Description=Make notification when battery is below 10%
+
+[Timer]
+OnBootSec=1m
+OnUnitInactiveSec=60
+Unit=batterylife.service
+
+[Install]
+WantedBy=default.target
+
+
+

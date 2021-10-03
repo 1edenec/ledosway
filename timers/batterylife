@@ -1,0 +1,26 @@
+#!/bin/bash
+# script works with user's timer
+# to show notification when battery is low
+
+battery_level=$(cat /sys/class/power_supply/BAT1/capacity)
+battery_status=$(cat /sys/class/power_supply/BAT1/status)
+
+if [[ -n $(pgrep -x sway) && $battery_status = "Discharging" &&  $battery_level -le 10 ]]
+then
+
+# get user id.
+	USER_NAME=$(who | awk -v vt=tty$(fgconsole) '$0 ~ vt {print $1}')
+	USER_ID=$(id -u "$USER_NAME")
+
+#export some sway usefull thinks
+	export SWAYSOCK="/run/user/$USER_ID/sway-ipc.$USER_ID.$(pgrep -x sway).sock"
+	export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$USER_ID/bus"
+	export PULSE_SERVER="unix:/run/user/$USER_ID/pulse/native"
+
+	sudo -E -u $USER_NAME /usr/bin/dunstify  --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%" -i battery-low \
+		> /dev/null 2>&1
+
+	sudo -E -u $USER_NAME /usr/bin/ffplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga -autoexit -nodisp -loglevel 24 \
+		> /dev/null 2>&1
+
+fi
