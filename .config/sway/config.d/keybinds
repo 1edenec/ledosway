@@ -161,7 +161,7 @@ mode "resize" {
 # right will grow the containers width
 # up will shrink the containers height
 # down will grow the containers height
-	bindsym $left resize shrink width 10px
+		bindsym $left resize shrink width 10px
 		bindsym $down resize grow height 10px
 		bindsym $up resize shrink height 10px
 		bindsym $right resize grow width 10px
@@ -200,8 +200,6 @@ bindsym --whole-window BTN_SIDE exec pwControl down
 #
 # Backlight
 #
-# bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
-# bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
 
 bindsym XF86MonBrightnessUp exec brightControl up
 bindsym XF86MonBrightnessDown exec brightControl down
@@ -209,11 +207,5 @@ bindsym XF86MonBrightnessDown exec brightControl down
 #
 # Screenshots
 #
-# bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
-# bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
-
 bindsym Shift+print exec rofiscreen
-
-# colorpicker
-#bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 

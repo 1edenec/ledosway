@@ -2,11 +2,10 @@
 
 # Set wallpaper:
 output * bg ~/.config/sway/sway.png fill
-#exec swaybg -i ~/.config/sway/sway.png
 
 # put screens to position
-#output HDMI-A-1 pos 0 0 mode 1920x1080@75.002Hz bg #000000 solid_color
-#output * adaptive_sync on
+# output HDMI-A-1 pos 0 0 mode 1920x1080@75.002Hz bg #000000 solid_color
+# output * adaptive_sync on
 output HDMI-A-1 {
 	pos 0 0
 	mode 1920x1080@75.002Hz
@@ -27,7 +26,4 @@ workspace {
 		0 output HDMI-A-1
 }
 
-# workspace 8 gaps inner 0
-# workspace 9 gaps inner 0
-# workspace 0 gaps inner 0
 

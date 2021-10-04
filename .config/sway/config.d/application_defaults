@@ -21,17 +21,10 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60
 
 for_window [app_id="imv"] floating enable
 
-# set floating (nontiling)for apps needing it:
-for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
-
 # set floating (nontiling) for special apps:
-for_window [class="Xsane" instance="xsane"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
-
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
-
 for_window [app_id="qalculate-gtk"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [app_id="gsimplecal"] move position 40ppt -2ppt, border pixel 2
 
 # set floating for window roles
 for_window [window_role="pop-up"] floating enable
@@ -63,20 +56,10 @@ for_window [title="Mount"] floating enable
 for_window [title="Execute file"] floating enable
 for_window [title="Open database"] floating enable
 
-for_window [class="Double Commander" title="Options"] floating enable
-for_window [class="Double Commander" title="Find files"] floating enable
-
 for_window [app_id="file-roller"] floating enable, resize set width 50 ppt height 50 ppt
 for_window [app_id="wdisplays"] floating enable, resize set width 50 ppt height 70 ppt
 
 for_window [title="PortProton" class="Yad"] floating enable
-
-for_window [app_id="xsensors"] floating enable
-for_window [app_id="librewolf" title="librewolf — Sharing Indicator"] kill
-
-# opacity rules
-# for_window [ class=".*" ] opacity 0.5
-# for_window [ app_id=".*" ] opacity 0.5
 
 # Inhibit idle
 #for_window [app_id="librewolf"] inhibit_idle fullscreen
