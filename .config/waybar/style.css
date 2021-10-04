@@ -22,13 +22,15 @@
 @define-color white1    #FFFFFF;
 
 
+
+
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0px;
-    padding: 0;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0px;
+	padding: 0;
 }
 
 
@@ -36,155 +38,118 @@
 	/*border-radius: 40;*/
 	font-family:FiraCode Nerd Font;
 	font-size: 14pt;
-    min-height: 32pt;
-    background-color: @background;
-    color: @normal;
-    transition-property: background-color;
-    transition-duration: .5s;
+	min-height: 32pt;
+	background-color: @background;
+	color: @normal;
+	transition-property: background-color;
+	transition-duration: .5s;
 }
 
 
 #waybar.hidden {
-    opacity: 0.2;
+	opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: @normal;
-}
-*/
 
 
 #workspaces button {
-    padding: 0 10px;
-    color: @normal;
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
+	padding: 0 10px;
+	color: @normal;
+	/* Use box-shadow instead of border so the text isn't offset */
+	box-shadow: inset 0 -3px transparent;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px @grey1;
+	background: rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 -3px @grey1;
 }
 
 #workspaces button.focused {
-    background-color: @grey1;
-    box-shadow: inset 0 -3px @normal;
+	background-color: @grey1;
+	box-shadow: inset 0 -3px @normal;
 }
 
 #workspaces button.urgent {
-    background-color: @red0;
+	background-color: @red0;
 }
 
 #mode {
-    background-color: @grey1;
-    border-bottom: 3px solid @normal;
+	background-color: @grey1;
+	border-bottom: 3px solid @normal;
 }
+
 #clock,
 #battery,
 #backlight,
 #pulseaudio,
 #tray,
 #mode{
-    padding: 0 4px;
-    margin: 0 4px;
-    color: @normal;
-
+	padding: 0 4px;
+	margin: 0 4px;
+	color: @normal;
 }
 
 
 #window,
 #workspaces {
-    margin: 0 10px;
+	margin: 0 10px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0px;
+	margin-left: 0px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0px;
+	margin-right: 0px;
+}
+
+/* Animation */
+
+@keyframes blink-bottom-green {
+	from {
+		border-bottom: 3px solid rgba(151, 213, 155, 1);
+	}
+	to {
+		border-bottom: 3px solid rgba(151, 213, 155, 0.2);
+	}
 }
 
 
-
-#battery.charging, #battery.plugged {
-	background-color: @background;
-    color: @normal;
+@keyframes blink-bottom-magenta {
+	from {
+		border-bottom: 3px solid rgba(199, 128, 255, 1);
+	}
+	to {
+		border-bottom: 3px solid rgba(199, 128, 255, 0.2);
+	}
 }
 
-
-@keyframes blink {
-    to {
-        background-color: @black1;
-        color: @normal;
-    }
+@keyframes blink-bottom-yellow {
+	from {
+		border-bottom: 3px solid rgba(255, 254, 128, 1);
+	}
+	to {
+		border-bottom: 3px solid rgba(255, 254, 128, 0.2);
+	}
 }
 
+@keyframes blink-bottom-red {
+	from {
+		border-bottom: 3px solid rgba(255, 128, 128, 1);
+	}
+	to {
+		border-bottom: 3px solid rgba(255, 128, 128, 0.2);
+	}
+}
 
 #language{
-margin: 0px 2px
+	margin: 0px 2px
 }
-
-
-#battery{
-	margin-right: 0px;
-	margin-left: 0px;
-}
-
-
-#battery.charging:not(.full) {
-    background-color: @green1;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#battery.discharging {
-    background-color: @magenta0;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-
-
-#battery.discharging.warning {
-    background-color: @yellow0;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-
-#battery.discharging.critical {
-    background-color: @red0;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 
 label:focus {
-    background-color: #000000;
+	background-color: #000000;
 }
 
 
@@ -194,7 +159,7 @@ label:focus {
 
 
 #pulseaudio.muted {
-    color: @red0;
+	color: @red0;
 }
 
 #idle_inhibitor{
@@ -204,45 +169,41 @@ label:focus {
 
 
 #custom-waytime.charging{
-    background-color: @green1;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+	border-bottom: 3px solid @green0;
+	animation-name: blink-bottom-green;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 
 #custom-waytime.discharging{
-background-color: @magenta0;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+	border-bottom: 3px solid @magenta0;
+	animation-name: blink-bottom-magenta;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 #custom-waytime.dis_warning{
-	background-color: @yellow0;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+	border-bottom: 3px solid @yellow0;
+	animation-name: blink-bottom-yellow;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 
 #custom-waytime.dis_crit{
-background-color: @red0;
-    color: @black1;
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+	border-bottom: 3px solid @red0;
+	animation-name: blink-bottom-red;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 

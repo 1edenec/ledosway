@@ -20,7 +20,6 @@
 		],
 
 		"modules-center": [
-			//"clock",
 			"custom/waytime"
 		],
 
@@ -28,22 +27,21 @@
 			"pulseaudio",
 			"network",
 			"sway/language",
-			"battery",
 			"idle_inhibitor",
 			"tray"
 		],
 
 	// Modules configuration
 
-	"custom/waytime": {
-
-        "format": "{}",
-		"format-alt": "{alt}",
-		"return-type":"json",
-        "interval": "60",
-        "exec": "$HOME/.config/waybar/scripts/waytime",
-        "signal": 8
-    },
+		"custom/waytime": {
+			"format": "{}",
+			"format-alt": "{alt}",
+			"return-type":"json",
+			"interval": 60,
+			"exec": "$HOME/.config/waybar/scripts/waytime",
+			"signal": 8,
+			"on-click-right": "gsimplecal"
+		},
 
 
 		"sway/workspaces": {
@@ -103,37 +101,6 @@
 			"on-click": "minimize-raise",
 			"on-click-middle": "close",
 			"on-click-right": "maximize"
-		},
-
-
-		"clock": {
-			"interval": 30,
-			"format": "{:%H:%M}",
-			// "timezone": "America/New_York",
-			"tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-			"format-alt": "{:%A, %d-%m-%Y}",
-			"on-click-right": "foot pulsemixer"
-		},
-
-
-		"battery": {
-			"states": {
-				"full": 100,
-				"good": 90,
-				"warning": 30,
-				"critical": 15
-			},
-
-			"format": "{icon} {capacity}%",
-			"format-discharging": "{capacity}%",
-			"format-charging": "{capacity}%",
-			"format-charging-full": "",
-			"format-plugged-full": "",
-			//"format-plugged": "{capacity}%  ",
-			"format-alt": "{time} {icon}",
-			"format-good": "",
-			"format-full": "",
-			"format-icons": ["", "", "", "", ""],
 		},
 
 
