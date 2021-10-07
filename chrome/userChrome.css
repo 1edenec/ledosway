@@ -173,8 +173,7 @@ toolbarbutton.scrollbutton-down {
 /* This block makes the tabs seamless with the rest of the config's color */
 tab
 {
-
-	height:2rem;
+	height:1.0rem;
 	background-color: #1F252A !important;
 	font-weight: thin !important;
 	color : #6A6A6A !important;
@@ -188,15 +187,10 @@ tab
 
 .tab-content[selected="true"]
 {
-
 	background-color: #1F252A !important;
 	font-weight: bold !important;
 	color : #97D59B !important;
 }
-
-
-
-
 
 
 #nav-bar-customization-target {
@@ -224,8 +218,6 @@ tab
 	--lwt-text-color: #97D59B !important;
 	color: #97D59B !important;
 	background-color: #1F252A !important;
-
-}
 
 
 /* Changes the text color in the bookmarks bar */

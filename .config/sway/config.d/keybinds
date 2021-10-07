@@ -209,3 +209,7 @@ bindsym XF86MonBrightnessDown exec brightControl down
 #
 bindsym Shift+print exec rofiscreen
 
+## Play with mpv
+bindsym --to-code $mod+Shift+p  exec play-with-mpv
+
+
