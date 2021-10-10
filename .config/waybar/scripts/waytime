@@ -1,16 +1,16 @@
 #!/bin/bash
-text=" $(date +%H:%M) "
 
 battery_level=$(cat /sys/class/power_supply/BAT1/capacity)
 battery_status=$(cat /sys/class/power_supply/BAT1/status)
 
 #function to send notification when battery is in critical condition
-notifyier(){
+notifier(){
 dunstify  --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%" -i battery-low \
 	> /dev/null 2>&1
 ffplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga -autoexit -nodisp -loglevel 24 \
 	> /dev/null 2>&1
 }
+
 
 if [[ $battery_level -gt 95 && $battery_status != Discharging ]]
 then
@@ -21,14 +21,16 @@ then
 elif [[ $battery_status == Discharging && $battery_level -le 10 ]]
 then
 	class=dis_crit
-	notifyier
+	notifier
 elif [[ $battery_status == Discharging && $battery_level -le 30 ]]
 then
 	class=dis_warning
 elif [[ $battery_status == Discharging ]]
 then
-	class=discharging
+	class=dis_normal
 fi
 
+text=" $(date +%H:%M) "
 alt=" $(date +%a,' '%d-%b-%Y), "$battery_status" "$battery_level"% "
+
 echo {\"text\": \"$text\", \"alt\": \"$alt\", \"class\":\"${class}\"}

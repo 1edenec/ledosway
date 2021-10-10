@@ -170,7 +170,7 @@
 }
 
 
-#custom-waytime.discharging{
+#custom-waytime.dis_normal{
 	border-bottom: 3px solid @magenta0;
 	animation-name: blink-bottom-magenta;
 	animation-duration: 4s;
