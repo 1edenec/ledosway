@@ -2,9 +2,6 @@ configuration {
 	modi:				"drun,run";
 	sidebar-mode:		true;
 	terminal:			"foot";
-	width:				1000;
-	lines:				11;
-	columns:			3;
 	font:				"monospace 20";
 	show-icons:			true;
 	run-command:		"{cmd}";
@@ -12,9 +9,7 @@ configuration {
 	icon-theme:			"oomox-aglia_led";
 	case-sensitive:		false;
 	cycle:				true;
-	bw:					2;
 	location:			0;
-	line-margin:		2;
 	display-run: "";
 	display-drun: "";
 	theme: "usual";

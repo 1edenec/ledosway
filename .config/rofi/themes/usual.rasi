@@ -3,8 +3,9 @@
  * Rofi version: 1.6.1
  **/
 * {
+	lines: 12;
+	columns: 2;
     foreground:                  #97D59B;
-    lightfg:                     #586875;
 	normal-foreground:           var(foreground);
     active-foreground:           var(foreground);
     urgent-foreground:           var(foreground);
@@ -14,7 +15,6 @@
     alternate-normal-foreground: var(foreground);
     alternate-active-foreground: var(active-foreground);
     alternate-urgent-foreground: var(urgent-foreground);
-
 	background:                  #1F252A;
     lightbg:                     #D5D5D5;
     normal-background:           var(background);
@@ -84,6 +84,7 @@ element-icon {
     text-color:       inherit;
 }
 window {
+	width: 50%;
     padding:          5;
     background-color: var(background);
     border:           2;
@@ -107,7 +108,7 @@ listview {
     border-color: var(separatorcolor);
     spacing:      2px ;
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    border:       2px solid 0px 0px ;
 }
 scrollbar {
     width:        0px ;
@@ -121,8 +122,9 @@ sidebar {
     border:       2px dash 0px 0px ;
 }
 button {
-    spacing:    0;
     text-color: var(normal-foreground);
+	padding: 0 4 0 ;
+	horizontal-align: 0.5;
 }
 button selected {
     background-color: var(selected-normal-background);
@@ -160,6 +162,7 @@ entry {
 prompt {
     spacing:    10;
     text-color: var(normal-foreground);
+	font: "monospace";
 }
 textbox-prompt-colon {
     margin:     0px 0.3000em 0.0000em 0.0000em ;

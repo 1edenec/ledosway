@@ -1,23 +1,41 @@
 #!/bin/bash
+# simple script to handle libvirtd and virt machines
+# OPTIONS=" SpectrwmArch\n ManjaroKDE\n Win10\n Win10Test"
 
-# rofi-games
-# to start games with rofi
+askVirtConsole(){
+	OPTIONS=" VirtManager\n win10test\n Artix-S6\n ArchRiver"
+	option=$(echo -e $OPTIONS |\
+		rofi -dmenu -width 40 -i -p "Virt machine to start:" -theme-str '#listview { scrollbar:false; }' |\
+		tr -d '\r\n')
+	case $option in
+		" win10test")domen="win10test";;
+		" Artix-S6")domen="artixS6";;
+		" ArchRiver")domen="archlinuxriver";;
+		" VirtManager")DRI_PRIME=1 virt-manager; exit;;
+		*)exit;;
+	esac
 
-# to add icon use:
-# option=`echo -en "myentry\0icon\x1ffirefox\n"`
+	DRI_PRIME=1 virt-manager --connect qemu:///system --show-domain-console "$domen"
+}
 
-OPTIONS=" SpectrwmArch\n ManjaroKDE\n Win10\n Win10Test"
 
-LAUNCHER='rofi -columns 1 -dmenu -l 4 -i -p Virts:'
+askToStart(){
+	OPTIONS="YES\nNO"
+	#LAUNCHER='bemenu -p Start libvirt?'
 
-option=$(echo -e $OPTIONS | $LAUNCHER | tr -d '\r\n')
+	option=$(echo -e $OPTIONS |\
+		rofi -dmenu -width 40 -l 2 -i -p "Start libvirt.service?"  -theme-str '#listview { scrollbar:false; }')
+	case $option in
+		YES)
+			systemctl  start libvirtd.service
+			askVirtConsole;;
+		*)exit;;
+	esac
+}
 
-case $option in
-	" SpectrwmArch")domen="archlinux_spectrwm";;
-	" ManjaroKDE")domen="manjaroKDE";;
-	" Win10")domen="Win10";;
-	" Win10Test")domen="wintest";;
-	*)exit;;
-esac
-virt-manager --connect qemu:///system --show-domain-console "$domen"
-
+if [ -z "$(systemctl status libvirtd.service | grep "active (running)")" ]
+then
+	askToStart
+else
+	askVirtConsole
+fi

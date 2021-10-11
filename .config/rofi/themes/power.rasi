@@ -3,8 +3,10 @@
  * Rofi version: 1.6.1
  **/
 * {
+	lines: 1;
+	columns: 5;
+	line-margin: 2;
     foreground:                  #97D59B;
-    lightfg:                     #97D59B;
 	normal-foreground:           var(foreground);
     active-foreground:           var(foreground);
     urgent-foreground:           var(foreground);
@@ -113,7 +115,7 @@ listview {
     border-color: var(separatorcolor);
     spacing:      2px ;
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    border:       2px solid 0px 0px ;
 }
 scrollbar {
     width:        0px ;
@@ -151,7 +153,7 @@ inputbar {
     padding:    1px ;
     spacing:    0px ;
     text-color: var(normal-foreground);
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children:   [ prompt,textbox-prompt-colon,entry ];
 }
 case-indicator {
     spacing:    0;

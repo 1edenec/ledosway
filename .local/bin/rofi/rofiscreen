@@ -7,11 +7,10 @@ SCREENSHOT_DIR="${HOME}/Pictures/Screen"
 
 BASE_NAME=$(date '+%d_%m_%y_%H%M_%S')
 
-ENTRIES="Window Monitor Area Select-window Select-monitor All"
+ENTRIES="Window Monitor Area Select-window Select-monitor All delayed"
 
 SELECTED=$(printf '%s\n' $ENTRIES |\
-	rofi -dmenu -width 350 -l 6 -i -p Screenshot: -theme-str '#listview { scrollbar:false; }' |\
-	awk '{print tolower($1)}')
+	rofi -dmenu -p Screenshot: -theme screen -disable-history | awk '{print tolower($1)}')
 
 message(){
 	[ "$1" != "" ]  \
@@ -25,6 +24,12 @@ case $SELECTED in
 		#FOCUSED=$(swaymsg -t get_tree | jq '.. | ((.nodes? + .floating_nodes?) // empty) | .[] | select(.focused and .pid) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
 		grim -g "$(eval echo $FOCUSED)" ${SCREENSHOT_DIR}/focused-${BASE_NAME}.png
 		message "focused"
+		;;
+	delayed)
+		sleep 3
+		MONITOR=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+		grim -o $MONITOR ${SCREENSHOT_DIR}/monitor-${BASE_NAME}.png
+		message "monitor"
 		;;
 	monitor)
 		MONITOR=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')

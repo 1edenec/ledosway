@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#LOCKER="xkblayout-state set 0 && i3lock -c 000000 -e -f && sleep 1"
+LOCKER="lock"
+CHOICES="1 Lock|2 Logout|3 Suspend|4 Hibernate|5 Reboot|6 Shutdown"
+
+cmd=$(echo -e $CHOICES | rofi -i -width 300 -lines 6 -theme solarized_alternate -dmenu -sep "|")
+
+case $cmd in
+    "1 Lock")
+        eval $LOCKER
+	;;
+    "2 Logout")
+	i3-msg "exit"
+	;;
+    "3 Suspend")
+        systemctl suspend && eval $LOCKER
+	;;
+    "4 Hibernate")
+	systemctl hibernate && eval $LOCKER
+	;;
+    "5 Reboot")
+	systemctl reboot
+	;;
+    "6 Shutdown")
+	systemctl poweroff -i
+	;;
+esac
+
+

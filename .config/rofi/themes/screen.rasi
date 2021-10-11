@@ -3,8 +3,11 @@
  * Rofi version: 1.6.1
  **/
 * {
-    foreground:                  #9BAEC8;
-    lightfg:                     #586875;
+	lines: 7;
+	bw: 2;
+	columns: 3;
+	line-margin: 2;
+    foreground:                  #97D59B;
 	normal-foreground:           var(foreground);
     active-foreground:           var(foreground);
     urgent-foreground:           var(foreground);
@@ -15,39 +18,27 @@
     alternate-active-foreground: var(active-foreground);
     alternate-urgent-foreground: var(urgent-foreground);
 
-	background:                  #1e1f28;
-    lightbg:                     #EEE8D5;
+	background:                  #1F252A;
+    lightbg:                     #D5D5D5;
     normal-background:           var(background);
     active-background:           var(background);
     urgent-background:           var(background);
-    selected-normal-background:  #2A253E;
-    selected-active-background:  var(selected-normal-background);
-    selected-urgent-background:  var(selected-normal-background);
+    selected-normal-background:  #384149;
+    selected-active-background:  #384149;
+    selected-urgent-background:  #384149;
     alternate-normal-background: var(background);
     alternate-active-background: var(background);
     alternate-urgent-background: var(background);
     background-color:            #00000000;
 
 	separatorcolor:              var(foreground);
-    border-color:                #8485CE;
+    border-color:                var(foreground);
     spacing:                     2;
 }
 element {
-	border:  0;
     padding: 1px ;
     spacing: 3px ;
-	orientation: vertical;
-	children: [element-icon,element-text];
-}
-element-text {
-    highlight:        inherit;
-    text-color:       inherit;
-	horizontal-align: 0.5;
-}
-element-icon {
-    size:             48px ;
-    text-color:       inherit;
-	horizontal-align: 0.5;
+    border:  0;
 }
 element normal.normal {
     background-color: var(normal-background);
@@ -85,59 +76,98 @@ element alternate.active {
     background-color: var(alternate-active-background);
     text-color:       var(alternate-active-foreground);
 }
+element-text {
+    background-color: rgba ( 0, 0, 0, 0 % );
+    highlight:        inherit;
+    text-color:       inherit;
+}
+element-icon {
+    background-color: rgba ( 0, 0, 0, 0 % );
+    size:             1.0000em ;
+    text-color:       inherit;
+}
 window {
-    padding:          2;
+	width: 15%;
+    padding:          5;
     background-color: var(background);
     border:           2;
-	height: 55%;
-	width: 60%;
 }
 mainbox {
-    padding: 2;
+    padding: 0;
     border:  0;
-	children: [inputbar,listview];
+}
+message {
+    padding:      1px ;
+    border-color: var(separatorcolor);
+    border:       2px dash 0px 0px ;
 }
 textbox {
     text-color: var(foreground);
 }
+
 listview {
-    padding:      2px 2px 2px ;
+    padding:      2px 0px 0px ;
     scrollbar:    false;
-	fixed-height: 20;
     border-color: var(separatorcolor);
     spacing:      2px ;
-    border:       2px dash 0px 0px ;
-	columns:      10 ;
+    fixed-height: 0;
+    border:       2px solid 0px 0px ;
 }
 scrollbar {
-    width:        10px ;
+    width:        0px ;
     padding:      0;
-    handle-width: 0 ;
-    border:       2;
+    handle-width: 6 ;
+    border:       0;
     handle-color: var(normal-foreground);
 }
-
+sidebar {
+    border-color: var(separatorcolor);
+    border:       2px dash 0px 0px ;
+}
+button {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+button selected {
+    background-color: var(selected-normal-background);
+    text-color:       var(selected-normal-foreground);
+}
+num-filtered-rows {
+    expand:     false;
+    text-color: rgba ( 128, 128, 128, 100 % );
+}
+num-rows {
+    expand:     false;
+    text-color: rgba ( 128, 128, 128, 100 % );
+}
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: rgba ( 128, 128, 128, 100 % );
+}
 inputbar {
     padding:    1px ;
     spacing:    0px ;
     text-color: var(normal-foreground);
-    children:   [prompt,textbox-prompt-colon,entry];
+    children:   [ prompt,textbox-prompt-colon,entry ];
+}
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
 }
 entry {
     text-color:        var(normal-foreground);
     spacing:           0;
     placeholder-color: rgba ( 128, 128, 128, 100 % );
-    placeholder:       " ";
+    placeholder:       "";
 }
 prompt {
+    spacing:    10;
     text-color: var(normal-foreground);
-	font: "Hack Nerd Font Mono 20";
-	padding: 0 10 0;
 }
 textbox-prompt-colon {
-	padding: 1px;
     margin:     0px 0.3000em 0.0000em 0.0000em ;
     expand:     false;
-    str:        " ";
+    str:        "";
     text-color: inherit;
 }

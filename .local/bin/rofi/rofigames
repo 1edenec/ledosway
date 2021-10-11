@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# rofi-games
+# to start games with rofi
+
+# to add icon use:
+# option=`echo -en "myentry\0icon\x1ffirefox\n"`
+
+OPTIONS="Steam\0icon\x1fsteam\n\
+Lutris\0icon\x1flutris\n\
+Celeste\0icon\x1flutris_celeste\n\
+Slay The Spire\0icon\x1flutris_slay-the-spire\n\
+Terraria\0icon\x1fsteam_icon_105600\n\
+Meteorfall\0icon\x1fsteam_icon_1073320\n\
+Stoneshard\0icon\x1fsteam_icon_625960\n\
+Spelunky II\0icon\x1fsteam_icon_625960"
+
+LAUNCHER='rofi -columns 1 -dmenu -l 7 -i -p Games'
+
+option=$(echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n')
+
+case $option in
+	Steam)
+		steam &
+		;;
+	Lutris)
+		lutris &
+		;;
+	Slay)
+		steam steam://rungameid/646570 &
+		;;
+	Meteorfall)
+		steam steam://rungameid/1073320 &
+		;;
+	Stoneshard)
+		steam steam://rungameid/625960 &
+		;;
+	Terraria)
+		steam steam://rungameid/105600 &
+		;;
+	Celeste)
+		env WINEPREFIX='/home/led/Games/epic-games-store/' wine start /unix ~/Games/epic-games-store/drive_c/Program\ Files/Epic\ Games/Celeste/Celeste.exe
+		;;
+	Spelunky)
+		wine start /unix ~/Games/div/drive_c/Games/Spelunky\ 2/Spel2.exe
+		;;
+	*)
+		exit
+		;;
+esac
+
