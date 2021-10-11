@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [[ -n $(pgrep -x nemo) ]]
+then
+	swaymsg "[app_id="nemo"] focus"
+else
+	nemo ${@}
+fi

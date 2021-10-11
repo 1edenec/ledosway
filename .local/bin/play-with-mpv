@@ -1,0 +1,9 @@
+#!/bin/bash
+pasta=$(wl-paste -p)
+
+
+if [[ -n "$pasta"  && "$pasta" != "No selection" ]]
+then
+	dunstify "MPV:" "Trying to play $pasta" -i mpv
+	mpv $pasta
+fi

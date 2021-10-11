@@ -1,7 +1,5 @@
 ### AUTOSTART APPS
 
-#exec battery-message.sh
-
 ### Idle configuration
 #$1 - timeout to lock
 #$2 - timeout to screen of

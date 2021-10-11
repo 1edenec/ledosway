@@ -17,9 +17,9 @@ for_window [class="librewolf"] focus
 for_window [app_id="librewolf" title="Library"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 33ppt height 33ppt, move position 67ppt 67ppt, border pixel 4
 
-# pcmanfm
-assign [app_id="pcmanfm-qt"] 2
-for_window [app_id="pcmanfm-qt"] focus
+# fm
+assign [app_id="nemo"] 2
+for_window [app_id="nemo"] focus
 
 # kotatogram
 assign [app_id="kotatogramdesktop"] 2

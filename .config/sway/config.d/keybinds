@@ -53,8 +53,9 @@ bindsym $mod+f1 exec ~/.config/sway/scripts/lockman.sh
 # Apps
 #
 
-bindsym --to-code $mod+w exec librewolf
-bindsym --to-code $mod+e exec pcmanfmstart
+bindsym --to-code $mod+w exec librewolfstart
+
+bindsym --to-code $mod+e exec fmstart
 bindsym XF86PowerOff exec rofipower
 bindsym $mod+F4 exec rofipower
 

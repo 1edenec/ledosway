@@ -8,9 +8,9 @@
 - swayidle
 - flashfocus
 - autotiling
-- rofi (as launcher)
+- rofi-lbonn-wayland (as launcher)
 - dunst
-- pcmanfm-qt
+- nemo
 - neovim
 - foot
 - lxappearance
