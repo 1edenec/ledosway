@@ -84,9 +84,11 @@
 #language,
 #window,
 #workspaces,
-#mode{
-	padding: 0 4px;
-	margin: 0 4px;
+#mode,
+#network,
+#custom-waytooth{
+	/*padding: 0 0px;*/
+	margin: 0 2px;
 	color: @normal;
 }
 

@@ -1,0 +1,30 @@
+#!/bin/bash
+# simple script to toggle bluetooth service
+
+function message(){
+	sleep 3
+	if 		[ $(systemctl is-active bluetooth.service) != active ]
+	then
+		BLUE_STAT=DEAD
+		BLUE_ICON=blueberry-disabled
+	else
+		BLUE_STAT=RUNNING
+		BLUE_ICON=blueberry
+	fi
+	dunstify "System:" "Bluetooth service is $BLUE_STAT now." -i $BLUE_ICON
+}
+
+
+if 		[ $(systemctl is-active bluetooth.service) != active ]
+then
+	sudo systemctl start bluetooth.service
+else
+	sudo systemctl stop bluetooth.service
+fi
+
+
+[ $? -eq 0  ] && message || exit
+
+# send signal to waybar module "waytooth"
+pkill -RTMIN+12 waybar
+

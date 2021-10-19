@@ -1,0 +1,15 @@
+#!/bin/bash
+#simple script to show bluetooth icon in waybar custom module
+if [ $(systemctl is-active bluetooth.service) == active ]
+then
+	if [[ -n $(bluetoothctl show | grep "Powered:\ yes") ]]
+	then
+		text=""
+	else
+		text=""
+	fi
+fi
+
+echo {\"text\": \"$text\"}
+
+

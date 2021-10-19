@@ -20,10 +20,12 @@
 		],
 
 		"modules-center": [
-			"custom/waytime"
+			"custom/waytime",
+
 		],
 
 		"modules-right": [
+			"custom/waytooth",
 			"pulseaudio",
 			"network",
 			"sway/language",
@@ -42,6 +44,17 @@
 			"signal": 8,
 			"on-click-right": "gsimplecal"
 		},
+
+
+	  "custom/waytooth": {
+		"format": "{}",
+		"interval": 60,
+		"return-type":"json",
+		"exec": "$HOME/.config/waybar/scripts/waytooth",
+		"on-click": "bluetoggle",
+		// "pkill -RTMIN+12 waybar" executed from bluetoggle script
+		"signal": 12,
+	  },
 
 
 		"sway/workspaces": {
