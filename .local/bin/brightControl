@@ -10,7 +10,7 @@ BRIGHT_HIGH="notification-display-brightness-high"
 BRIGHT_MED="notification-display-brightness-medium"
 BRIGHT_LOW="notification-display-brightness-low"
 NOTHEAD="Brightness:"
-INCR=10
+INCR=5
 ICON=$BRIGHT_FULL
 
 
@@ -27,15 +27,14 @@ get_icon(){
 	TEXT="$BRIGHT_CUR"%
 }
 
-
 message(){
-	dunstify -i $ICON  -r $PID $NOTHEAD ${TEXT}
+	dunstify -i $ICON  -r $PID "$NOTHEAD ${TEXT}" -h int:value:${TEXT}
 }
 
 
 setter(){
 	BRIGHT_CUR=$(brightnessctl set $1 | awk -e '$1 == "Current"{gsub(/[()%]/,"",$4);print$4}')
-	(( $BRIGHT_CUR != 100 )) && get_icon $BRIGHT_CUR || TEXT="full"
+	get_icon $BRIGHT_CUR
 }
 
 

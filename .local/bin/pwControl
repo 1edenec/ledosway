@@ -85,16 +85,13 @@ down_vol(){
 
 
 message(){
-	dunstify -i $ICON  -r $PID $NOTHEAD ${TEXT}
+    dunstify -i $ICON  -r $PID "$NOTHEAD ${TEXT}"	 -h int:value:${TEXT}
 }
 
 
 bip(){
-	#canberra-gtk-play doesnt work with pipewire, so ffplay instead
-	#canberra-gtk-play -i audio-volume-change -d "Volume changed"
 	ffplay /usr/share/sounds/freedesktop/stereo/bell.oga -autoexit -nodisp -loglevel -24
 }
-
 
 get_status
 
