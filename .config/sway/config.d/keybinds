@@ -53,7 +53,7 @@ bindsym $mod+f1 exec ~/.config/sway/scripts/lockman.sh
 # Apps
 #
 
-bindsym --to-code $mod+w exec librewolfstart
+bindsym --to-code $mod+w exec browstart
 
 bindsym --to-code $mod+e exec fmstart
 bindsym XF86PowerOff exec rofipower
@@ -62,8 +62,8 @@ bindsym $mod+F4 exec rofipower
 bindsym --to-code $mod+x exec rofivirts
 bindsym --to-code $mod+Shift+a exec qalculate-gtk
 
-
-bindsym $mod+F5 exec bluetoggle
+#bindsym $mod+F5 exec bluetoggle
+bindsym $mod+F5 exec netman.sh
 
 #
 # Moving around:

@@ -5,7 +5,8 @@ for_window [app_id="qalculate-gtk"] floating enable, resize set width 60 ppt hei
 for_window [app_id="gsimplecal"] move position 40ppt -2ppt, border pixel 2
 for_window [app_id="imv"] floating enable
 for_window [app_id="file-roller"] floating enable, resize set width 50 ppt height 50 ppt
-for_window [title="PortProton" class="Yad"] floating enable
+for_window [class="Yad"] floating enable
+
 for_window [app_id="qt5ct"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 
@@ -14,12 +15,17 @@ assign [app_id="librewolf"] 3
 for_window [app_id="librewolf"] focus
 assign [class="librewolf"] 3
 for_window [class="librewolf"] focus
-for_window [app_id="librewolf" title="Library"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="librewolf" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set width 33ppt height 33ppt, move position 67ppt 67ppt, border pixel 4
 
 # fm
-assign [app_id="nemo"] 2
-for_window [app_id="nemo"] focus
+assign [app_id="thunar"] 2
+for_window [app_id="thunar"] focus
+for_window [app_id="^Thunar$"] floating enable, resize set width 70 ppt height 60 ppt
+
+# doublecmd
+for_window [window_type="dialog" class="^Double Commander$"  ] floating enable, resize set width 35 ppt
+for_window [title="Copying -" class="^Double Commander$"  ] floating enable, resize set width 35 ppt
 
 # kotatogram
 assign [app_id="kotatogramdesktop"] 2
@@ -29,6 +35,7 @@ for_window [app_id="kotatogram-desktop"] floating enable, resize set width 60 pp
 # steam
 assign [ class="Steam" ] 4
 for_window [ class="Steam" ] focus
+for_window [title="Steam - News"] floating enable
 
 # virt-manager
 for_window [title="Virtual Machine Manager"] floating enable
@@ -44,8 +51,10 @@ for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [window_role="TfrmFileOp"] floating enable, resize set width 50 ppt height 20 ppt
 
 # support windows
+for_window [title="^Options$"] floating enable, resize set width 70 ppt height 70 ppt
 for_window [title="Delete Files"] floating enable
 for_window [title="Copy Files"] floating enable
 for_window [title="Overwrite Files"] floating enable
