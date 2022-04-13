@@ -22,8 +22,8 @@ source ~/.config/nvim/pluginsConfig.vim
 	set		mouse=a
 	set		nohlsearch
 	set		clipboard+=unnamedplus
-	set		guifont="Hack Nerd Font Mono:h11"
-	set		guifontwide="Hack Nerd Font Mono:h12"
+"	set		guifont="Hack Nerd Font Mono:h11"
+"	set		guifontwide="Hack Nerd Font Mono:h12"
 	filetype plugin on
 
 " Enable autocompletion:
@@ -72,6 +72,7 @@ source ~/.config/nvim/pluginsConfig.vim
 " Включаем "умные" отступы, например, авто отступ после `{`
 	set smartindent
 " Отображение парных символов
+	hi MatchParen cterm=bold ctermbg=black ctermfg=magenta
 	set showmatch
 " Навигация с учетом русских символов, учитывается командами следующее/предыдущее слово и т.п.
 	set iskeyword=@,48-57,_,192-255
@@ -80,7 +81,9 @@ source ~/.config/nvim/pluginsConfig.vim
 " Подсвечивать линию текста, на которой находится курсор
 	set cursorline
 "highlight CursorLine guibg=black ctermbg=red
-	highlight CursorLine term=none cterm=none ctermbg=black
+	highlight CursorLine term=none cterm=none ctermbg=black gui=bold
+	highlight CursorLineNr term=none cterm=none ctermbg=black
+
 " Увеличение размера истории
 	set history=1000
 " Дополнительная информация в строке состояния
@@ -192,12 +195,18 @@ inoremap <S-Tab> <C-R>=SuperCleverTab()<cr>
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 
+" Set syntax without file reload
+	autocmd BufWritePost * nested e!
+
 " Автоматически перечитывать конфигурацию VIM после сохранения
 	autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	"autocmd BufWritePost files,directories !shortcuts
+
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	"autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
 " Update binds when sxhkdrc is updated.
 	"autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 

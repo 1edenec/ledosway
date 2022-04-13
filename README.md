@@ -10,9 +10,9 @@
 - autotiling
 - rofi-lbonn-wayland (as launcher)
 - dunst
-- nemo
+- thunar and doublecmd
 - neovim
-- foot
+- alacritty
 - lxappearance
 - qt5ct
 - fzf

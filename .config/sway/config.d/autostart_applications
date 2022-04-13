@@ -21,11 +21,14 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # if-exists autostarts
 #
 exec {
-
     '[ -x "$(command -v autotiling)" ] && autotiling'
 }
 
 exec_always {
+	# start foot server
+	'[ ! -f /run/user/1000/foot-wayland-1.sock ] && foot -s'
+
+	# start flashfocus
 	'[ -x "$(command -v flashfocus)" ] && killall flashfocus ; flashfocus'
 
 	# fix to dunst when session of sway was restarted

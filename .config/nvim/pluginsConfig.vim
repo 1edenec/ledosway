@@ -49,5 +49,5 @@ let g:startify_lists = [
 			\ ]
 
 
-let g:startify_bookmarks = [ '~/.config/bspwm/bspwmrc', '~/.config/picom/picom.conf','~/.config/kitty/kitty.conf','~/.config/zsh/.zshrc','~/.config/Xresources','~/.config/colors/' ]
+let g:startify_bookmarks = [ '~/.config/sway/', '~/.config/foot/foot.ini','~/.config/waybar/','~/.config/zsh/.zshrc','~/.config/colors/' ]
 
