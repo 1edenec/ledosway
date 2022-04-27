@@ -12,7 +12,7 @@ configuration {
 	location:			0;
 	display-run: "";
 	display-drun: "";
-	theme: "usual";
 }
+	@theme "usual"
 
 /* vim:ft=css

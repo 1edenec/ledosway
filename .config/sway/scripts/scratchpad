@@ -10,11 +10,11 @@ then
 
 	if [ "$1" == "$TERMINAL" ]
 	then
-		swaymsg "exec $TERMINAL -t dropdown_$1"
+		swaymsg "exec $TERMINAL -T dropdown_$1"
 		sleep 0.2
 		swaymsg -q "[title=dropdown_$1] mark dropdown_$1"
 	else
-		swaymsg "exec $TERMINAL -t dropdown_$1 $1"
+		swaymsg "exec $TERMINAL -T dropdown_$1 $1"
 		sleep 0.2
 		swaymsg "[title=dropdown_$1] scratchpad show"
 	fi

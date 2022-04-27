@@ -6,7 +6,7 @@
 flash-opacity: 0.8
 
 # Windows are restored to this opacity value at the end of a flash.
-default-opacity: 1
+default-opacity: 0.97
 
 # Length of flash in milliseconds.
 time: 500
@@ -95,5 +95,15 @@ flash-lone-windows: 'always'
 rules:
   - app-id: librewolf
     flash-on-focus: False
-
+    default-opacity: 1.0
+  - app-id: mpv
+    flash-on-focus: True
+    default-opacity: 1.0
+  - window-name: DesktopEditors
+    default-opacity: 1.0
+  - window-name: ONLYOFFICE
+    default-opacity: 1.0
+  - app-id: virt-manager
+    flash-on-focus: False
+    default-opacity: 1.0
 

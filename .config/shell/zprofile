@@ -1,6 +1,8 @@
 emulate sh -c 'source /etc/profile'
 
 #export WLR_RENDERER=vulkan
+
+
 export MOZ_ENABLE_WAYLAND=1
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
@@ -15,7 +17,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORM=wayland
 
-
 # to work with grimshot
 export XDG_SCREENSHOTS_DIR=$HOME/Pictures/Screen
 
@@ -29,7 +30,7 @@ export EDITOR="nvim"
 export SYSTEMD_EDITOR="nvim"
 export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="foot"
 export BROWSER="librewolf"
 export READER="zathura"
 export FILE="thunar"

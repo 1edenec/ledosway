@@ -11,7 +11,7 @@ application/x-extension-shtml=librewolf.desktop
 application/xhtml+xml=librewolf.desktop
 application/x-extension-xhtml=librewolf.desktop
 application/x-extension-xht=librewolf.desktop
-x-scheme-handler/tg=userapp-Kotatogram Desktop-UG0PK1.desktop
+x-scheme-handler/tg=userapp-Kotatogram Desktop-YGRBK1.desktop
 text/plain=nvim.desktop
 inode/directory=thunar.desktop
 inode/x-shortcut=thunar.desktop
@@ -22,7 +22,7 @@ application/wps-office.docx=onlyoffice-desktopeditors.desktop
 application/wps-office.xlsx=onlyoffice-desktopeditors.desktop
 
 [Added Associations]
-x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop;userapp-Telegram Desktop-NWH860.desktop;userapp-Kotatogram Desktop-UG0PK1.desktop;
+x-scheme-handler/tg=userapp-Kotatogram Desktop-9FWT30.desktop;userapp-Telegram Desktop-NWH860.desktop;userapp-Kotatogram Desktop-UG0PK1.desktop;userapp-Kotatogram Desktop-YGRBK1.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 text/plain=nvim.desktop;wine-extension-txt.desktop;
 application/octet-stream=nvim.desktop;

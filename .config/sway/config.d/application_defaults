@@ -1,9 +1,10 @@
 ### APPS DEFAULTS
 # special per apps:
 for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [app_id="qalculate-gtk"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [app_id="gsimplecal"] move position 40ppt -2ppt, border pixel 2
-for_window [app_id="qimgv"] floating enable
+for_window [app_id="qalculate-gtk"] floating enable, resize set width 37 ppt height 50 ppt
+for_window [app_id="gsimplecal"] move position 10 35ppt, border pixel 2
+
+ for_window [app_id="qimgv"] floating enable
 for_window [class="qimgv"] floating enable
 for_window [app_id="file-roller"] floating enable, resize set width 50 ppt height 50 ppt
 for_window [class="Yad"] floating enable
@@ -39,7 +40,7 @@ for_window [ class="Steam" ] focus
 for_window [title="Steam - News"] floating enable
 
 # virt-manager
-for_window [title="Virtual Machine Manager"] floating enable
+for_window [title="^Virtual Machine Manager$"] floating enable
 for_window [title="QEMU\/KVM - Connection Details"] floating enable
 
 # set floating for window roles

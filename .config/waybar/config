@@ -1,14 +1,14 @@
 {
 	// "layer": "top", // Waybar at top layer
-	"position": "top", // Waybar position (top|bottom|left|right)
-	"height": 32, // Waybar height (to be removed for auto height)
-	//"width": 1280, // Waybar width
+	"position": "left", // Waybar position (top|bottom|left|right)
+	//"height": 32, // Waybar height (to be removed for auto height)
+	"width": 0, // Waybar width
 	//"margin": 4,
 	"output" : "eDP-1",
-	"margin-top" : 2,
+	"margin-top" : 4,
 	"margin-left" : 4,
 	"margin-right" : 4,
-	//"margin-bottom" : 2,
+	"margin-bottom" : 4,
 
 
 		// Choose the order of the modules
@@ -16,33 +16,40 @@
 		"modules-left": [
 			"sway/workspaces",
 			"sway/mode",
-			"sway/window",
 		],
 
 		"modules-center": [
-			"custom/waytime",
-
+			"clock"
 		],
 
 		"modules-right": [
-			"custom/waytooth",
 			"pulseaudio",
+			"custom/waytooth",
 			"network",
 			"sway/language",
-			"idle_inhibitor",
-			"tray"
+			"tray",
+			"custom/anibattery"
 		],
 
 	// Modules configuration
 
-		"custom/waytime": {
+
+		"clock": {
+			// "timezone": "America/New_York",
+			//"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+			"format-alt": "{:%A, %d-%B-%Y}",
+			"on-click-right": "gsimplecal",
+			"rotate": 90
+			},
+
+
+		"custom/anibattery": {
 			"format": "{}",
 			"format-alt": "{alt}",
 			"return-type":"json",
 			"interval": 60,
-			"exec": "$HOME/.config/waybar/scripts/waytime",
+			"exec": "$HOME/.config/waybar/scripts/anibattery",
 			"signal": 8,
-			"on-click-right": "gsimplecal"
 		},
 
 
@@ -51,7 +58,7 @@
 		"interval": 60,
 		"return-type":"json",
 		"exec": "$HOME/.config/waybar/scripts/waytooth",
-		"on-click": "bluetoggle",
+		"on-click": "netman.sh",
 		// "pkill -RTMIN+12 waybar" executed from bluetoggle script
 		"signal": 12,
 	  },
@@ -59,86 +66,41 @@
 
 		"sway/workspaces": {
 			"disable-scroll": true,
+			"rotate": 90,
 			"all-outputs": true,
 			"format": "{index}",
-
-			"format-icons": {
-				"1": "",
-				"2": "",
-				"3": "",
-				"4": "",
-				"5": "",
-				"6": "",
-				"7":  "",
-				"8":  "",
-				"9":  "",
-				"urgent": "",
-				"focused": "",
-				"default": ""
-			},
-		},
-
-
-		"sway/window": {
-			"format": "{}",
-			"max-length": 48
 		},
 
 
 		"sway/mode": {
+			"rotate": 90,
 			"format": " <span style=\"italic\">{}</span> "
 		},
 
 
-		"idle_inhibitor": {
-			"format": "{icon}",
-			"format-icons": {
-				"activated": "",
-				"deactivated": ""
-			}
-		},
-
-
 		"tray": {
-			"icon-size": 16,
-			"spacing": 10
-		},
-
-
-		"wlr/taskbar": {
-			"format": "{icon} {title:.24}",
-			"icon-size": 22,
-			//"icon-theme": "Numix-Circle",
-			//"tooltip-format": "{title}",
-			"active-first": true,
-			"on-click": "minimize-raise",
-			"on-click-middle": "close",
-			"on-click-right": "maximize"
+			"icon-size": 24,
+			"spacing": 8
 		},
 
 
 		"network": {
-			// "interface": "wlp2*", // (Optional) To force the use of this interface
-			//"format-wifi": "{icon} {essid} ({signalStrength}%)",
 			"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
 			"format-wifi": " ",
 			"format-linked": "{ifname} (No IP)  ",
 			"format-disconnected": " ",
-			"format-alt": "{ifname}: {ipaddr}/{cidr}",
+			//"format-alt": "{ifname}: {ipaddr}/{cidr}",
 			"tooltip-format": "{ifname}",
-			"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+			"tooltip-format-wifi": "{ipaddr}\n{essid} ({signalStrength}%)",
 			"tooltip-format-ethernet": "{ifname} ",
 			"tooltip-format-disconnected": "Disconnected",
-			//"format-icons": ["", "", "", "", ""]
 		},
 
 
 		"pulseaudio": {
-			// "scroll-step": 1, // %, can be a float
 			"format": "",
 			"format-bluetooth": "{volume}% {icon} {format_source}",
-			"format-bluetooth-muted": "婢 {icon} {format_source}",
-			"format-muted": "婢 {format_source}",
+			"format-muted": "婢",
 			"format-source": "{volume}% ",
 			"format-source-muted": "",
 			"format-icons": {

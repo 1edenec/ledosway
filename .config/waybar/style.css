@@ -45,7 +45,7 @@
 
 
 #workspaces button {
-	padding: 0 10px;
+	padding: 0 8px;
 	color: @normal;
 	/* Use box-shadow instead of border so the text isn't offset */
 	box-shadow: inset 0 -3px transparent;
@@ -54,42 +54,44 @@
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
 	background: rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 -3px @grey1;
+	box-shadow: inset 0 -2px @grey1;
 }
 
 
 #workspaces button.focused {
 	background-color: @black1;
-	box-shadow: inset 0 -3px @normal;
+	box-shadow: inset 0 -2px @normal;
 }
 
 
 #workspaces button.urgent {
 	background-color: @red0;
-	box-shadow: inset 0 -3px @normal;
+	box-shadow: inset 0 -2px @normal;
 }
 
 
 #mode {
 	background-color: @black1;
-	border-bottom: 3px solid @normal;
+	border-bottom: 4px solid @normal;
 }
 
 
 #clock,
-#battery,
-#backlight,
 #pulseaudio,
-#tray,
 #language,
 #window,
 #workspaces,
-#mode,
 #network,
-#custom-waytooth{
+#custom-waytooth,
+#custom-anibattery,
+#mode {
 	/*padding: 0 0px;*/
 	margin: 0 2px;
 	color: @normal;
+}
+
+#tray{
+margin: 0 5px;
 }
 
 
@@ -107,41 +109,29 @@
 
 /* Animation */
 @keyframes blink-bottom-green {
-	from {
-		border-bottom: 3px solid rgba(151, 213, 155, 1);
-	}
 	to {
-		border-bottom: 3px solid rgba(151, 213, 155, 0.2);
+		border-bottom: 4px solid rgba(151, 213, 155, 0.2);
 	}
 }
 
 
 @keyframes blink-bottom-magenta {
-	from {
-		border-bottom: 3px solid rgba(199, 128, 255, 1);
-	}
-	to {
-		border-bottom: 3px solid rgba(199, 128, 255, 0.2);
-	}
+to {
+		border-bottom: 4px solid rgba(199, 128, 255, 0.2);
+    }
 }
 
 
 @keyframes blink-bottom-yellow {
-	from {
-		border-bottom: 3px solid rgba(255, 254, 128, 1);
-	}
 	to {
-		border-bottom: 3px solid rgba(255, 254, 128, 0.2);
+		border-bottom: 4px solid rgba(255, 254, 128, 0.2);
 	}
 }
 
 
 @keyframes blink-bottom-red {
-	from {
-		border-bottom: 3px solid rgba(255, 128, 128, 1);
-	}
 	to {
-		border-bottom: 3px solid rgba(255, 128, 128, 0.2);
+		border-bottom: 4px solid rgba(255, 128, 128, 0.2);
 	}
 }
 
@@ -156,14 +146,9 @@
 }
 
 
-#idle_inhibitor{
-	margin-right: 10px;
-	margin-left: 5px;
-}
-
-
-#custom-waytime.charging{
-	border-bottom: 3px solid @green0;
+#custom-anibattery.charging{
+	color: @green0;
+	border-bottom: 4px solid @green0;
 	animation-name: blink-bottom-green;
 	animation-duration: 4s;
 	animation-timing-function: linear;
@@ -172,8 +157,9 @@
 }
 
 
-#custom-waytime.dis_normal{
-	border-bottom: 3px solid @magenta0;
+#custom-anibattery.dis_normal{
+	color: @green0;
+	border-bottom: 4px solid @magenta0;
 	animation-name: blink-bottom-magenta;
 	animation-duration: 4s;
 	animation-timing-function: linear;
@@ -181,8 +167,9 @@
 	animation-direction: alternate;
 }
 
-#custom-waytime.dis_warning{
-	border-bottom: 3px solid @yellow0;
+#custom-anibattery.dis_warning{
+	color: @green0;
+	border-bottom: 4px solid @yellow0;
 	animation-name: blink-bottom-yellow;
 	animation-duration: 4s;
 	animation-timing-function: linear;
@@ -191,8 +178,9 @@
 }
 
 
-#custom-waytime.dis_crit{
-	border-bottom: 3px solid @red0;
+#custom-anibattery.dis_crit{
+	color: @green0;
+	border-bottom: 4px solid @red0;
 	animation-name: blink-bottom-red;
 	animation-duration: 2s;
 	animation-timing-function: linear;

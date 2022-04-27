@@ -3,7 +3,7 @@
 ### Idle configuration
 #$1 - timeout to lock
 #$2 - timeout to screen of
-exec_always ~/.config/sway/scripts/swayidle.sh 300 300
+#exec_always ~/.config/sway/scripts/swayidle.sh 300 300
 
 
 # Clamshell Mode
@@ -26,7 +26,7 @@ exec {
 
 exec_always {
 	# start foot server
-	'[ ! -f /run/user/1000/foot-wayland-1.sock ] && foot -s'
+	#'[ ! -f /run/user/1000/foot-wayland-1.sock ] && foot -s'
 
 	# start flashfocus
 	'[ -x "$(command -v flashfocus)" ] && killall flashfocus ; flashfocus'
