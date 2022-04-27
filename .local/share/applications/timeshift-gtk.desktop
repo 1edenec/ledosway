@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Timeshift
-Exec=sudo -EA timeshift-gtk
-Type=Application
-GenericName=System Restore Utility
-Terminal=false
-Icon=timeshift
-Comment=System Restore Utility
-Categories=System;
