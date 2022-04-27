@@ -1,4 +1,5 @@
 #!/bin/bash
+# simple script to contol sound
 
 PID="1283"
 ICON_VOL_HIGH="notification-audio-volume-high"
@@ -7,8 +8,6 @@ ICON_VOL_LOW="notification-audio-volume-low"
 ICON_VOL_MUTED="notification-audio-volume-muted"
 NOTHEAD="Volume:"
 INCR=5
-ICON="$ICON_VOL_MUTED"
-TEXT="muted"
 USE_SOUND="true"
 
 
@@ -18,7 +17,6 @@ usage(){
 
 
 get_status(){
-	DEF_SINK=$(pactl get-default-sink)
 	# STAT will be "no" if not Muted and "yes" if muted
 	STAT=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print$2}')
 	VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{sub(/%/,"");print $5}')
@@ -26,10 +24,13 @@ get_status(){
 
 
 get_icon(){
-	if (( $1 > 66 ))
+	if [ $STAT != "no" ]
+		then
+	ICON=$ICON_VOL_MUTED
+	elif (( $VOLUME > 66 ))
 	then
 		ICON=$ICON_VOL_HIGH
-	elif (( $1 < 33  ))
+	elif (( $VOLUME < 33  ))
 	then
 		ICON=$ICON_VOL_LOW
 	else
@@ -39,30 +40,23 @@ get_icon(){
 
 
 mute_vol(){
-	if [ $STAT != "no" ]
-	then
-		TEXT="$VOLUME"%
-		get_icon $(echo $TEXT | sed "s|%||")
-	fi
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	STAT=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print$2}')
 }
 
 
 up_vol(){
 	if [ $STAT == "no" ]
-	then
+		then
 		OST=$(( 100 - $VOLUME ))
 		if [ $OST -le $INCR ]
 		then
 			pactl set-sink-volume @DEFAULT_SINK@ 100%
-			TEXT="100"%
+			VOLUME=100
 		else
 			pactl set-sink-volume @DEFAULT_SINK@ +$INCR%
-			TEXT="$(( VOLUME + INCR ))"%
+			VOLUME=$(( VOLUME + INCR ))
 		fi
-		get_icon $(echo $TEXT | sed "s|%||")
-	else
-		TEXT="$VOLUME"%
 	fi
 }
 
@@ -73,20 +67,17 @@ down_vol(){
 		if [ $VOLUME -le $INCR ]
 		then
 			pactl set-sink-volume @DEFAULT_SINK@ 0%
-			TEXT="0"%
+			VOLUME=0
 		else
 			pactl set-sink-volume @DEFAULT_SINK@ -$INCR%
-			TEXT="$(( VOLUME - INCR ))"%
+			VOLUME=$(( VOLUME - INCR ))
 		fi
-		get_icon $(echo $TEXT | sed "s|%||")
-	else
-		TEXT="$VOLUME"%
 	fi
 }
 
 
 message(){
-    dunstify -i $ICON  -r $PID "$NOTHEAD ${TEXT}"	 -h int:value:${TEXT}
+    dunstify -i $ICON  -r $PID "$NOTHEAD ${VOLUME}%" -h int:value:${VOLUME}
 }
 
 
@@ -98,9 +89,10 @@ bip(){
 get_status
 
 case  $1 in
-	mute)	mute_vol && message ;;
-	up)		up_vol		&&	message; $USE_SOUND && bip	;;
-	down)	down_vol	&&	message; $USE_SOUND && bip	;;
+	mute)	mute_vol; get_icon; message; $USE_SOUND && bip
+ ;;
+	up)		up_vol;	get_icon;  message; $USE_SOUND && bip	;;
+	down)	down_vol; get_icon;	message; $USE_SOUND && bip	;;
 	*)		usage	;;
 esac
 
