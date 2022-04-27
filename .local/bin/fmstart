@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [[ -n $(pgrep -x nemo) ]]
+if [[ -n $(pgrep -x thunar) ]]
 then
-	swaymsg "[app_id="nemo"] focus"
+	swaymsg "[app_id="thunar"] focus"
 else
-	nemo ${@}
+	thunar ${@}
 fi

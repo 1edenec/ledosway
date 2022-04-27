@@ -1,0 +1,70 @@
+#!/bin/bash
+# script to handle screencast in sway
+# required: sway wf-recorder slurp jq rofi
+# video will be saved as mp4
+
+SCREENCAST_DIR="${HOME}/Pictures/Cast"
+[ ! -d ${SCREENCAST_DIR} ] && mkdir ${SCREENCAST_DIR} -p
+
+
+function message(){
+	[ "$1" != "" ]  \
+		&& dunstify "Screencast saved to:" "${SCREENCAST_DIR}/${BASE_NAME}-${1}.mp4" -i state-running \
+		|| notify-send "Something was wrong"
+}
+
+
+function record_start(){
+
+	BASE_NAME=$(date '+%y_%m_%d_%H%M_%S')
+
+	ENTRIES="Area  Select-monitor Select-window"
+
+	SELECTED=$(printf '%s\n' $ENTRIES |\
+		rofi -dmenu -p Screenshot: -theme screen -disable-history | awk '{print tolower($1)}')
+
+	case $SELECTED in
+		area)
+			wf-recorder -g "$(slurp)" -f ${SCREENCAST_DIR}/${BASE_NAME}-area.mp4
+			message "area"
+			;;
+		select-monitor)
+			MONITOR=$(swaymsg -t get_outputs | jq -r '.[] | select(.active) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
+			echo "$MONITOR" |  wf-recorder -g "$(slurp)" -f ${SCREENCAST_DIR}/${BASE_NAME}-monitor.mp4
+			message "monitor"
+			;;
+		select-window)
+			WINDOWS=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
+			echo "$WINDOWS" |  wf-recorder -g "$(slurp)" -f ${SCREENCAST_DIR}/${BASE_NAME}-windows.mp4
+			message "window"
+			;;
+		*)
+			exit
+			;;
+	esac
+}
+
+
+function record_stop(){
+	if   [[ $(rofi -dmenu -p "Stop recording?" -l 2 <<< $'Yes\nNo') == "Yes"  ]]
+	then
+		killall wf-recorder
+		record_start
+	else
+		exit
+	fi
+}
+
+
+if [ -n "$(pgrep -x wf-recorder)" ]
+then
+	record_stop
+else
+	record_start
+fi
+
+
+
+
+
+

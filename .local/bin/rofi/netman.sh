@@ -2,7 +2,10 @@
 # bad script to quick handle wifi and bluetooth services
 
 action(){
+
 	sudo systemctl "$1" "$2".service
+	[ "$2""$1" == "bluetoothstart" ] && bluetoothctl power on
+	#echo "$2""$1"
 	dunstify "Network:" "$2\ $1ed"
 	sleep 3 && pkill -RTMIN+12 waybar
 }

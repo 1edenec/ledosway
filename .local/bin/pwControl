@@ -11,16 +11,17 @@ ICON="$ICON_VOL_MUTED"
 TEXT="muted"
 USE_SOUND="true"
 
+
 usage(){
 	echo -e "Unknowm argument.\nUsage:\nvolControl <up|down|mute>"
 }
 
 
 get_status(){
-	DEF_SINK=$(pactl info | awk '/Default Sink:/ {print$3}')
+	DEF_SINK=$(pactl get-default-sink)
 	# STAT will be "no" if not Muted and "yes" if muted
-	STAT=$(pactl list sinks | awk -v DEFSINK="${DEF_SINK}" '$2 ~ DEFSINK {s=NR;next} s && NR==s+6 {print $2}')
-	VOLUME=$(pactl list sinks | awk -v DEFSINK="${DEF_SINK}" '$2 ~ DEFSINK {s=NR;next} s && NR==s+7 {gsub ("%","",$5);print $5}')
+	STAT=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print$2}')
+	VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{sub(/%/,"");print $5}')
 }
 
 
@@ -90,8 +91,9 @@ message(){
 
 
 bip(){
-	ffplay /usr/share/sounds/freedesktop/stereo/bell.oga -autoexit -nodisp -loglevel -24
+	pw-play ~/.local/share/themes/bell.oga
 }
+
 
 get_status
 

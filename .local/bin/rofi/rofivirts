@@ -3,14 +3,14 @@
 # OPTIONS=" SpectrwmArch\n ManjaroKDE\n Win10\n Win10Test"
 
 askVirtConsole(){
-	OPTIONS=" VirtManager\n win10test\n Artix-S6\n ArchRiver"
+	OPTIONS=" VirtManager\n win10sea"
 	option=$(echo -e $OPTIONS |\
 		rofi -dmenu -width 40 -i -p "Virt machine to start:" -theme-str '#listview { scrollbar:false; }' |\
 		tr -d '\r\n')
 	case $option in
-		" win10test")domen="win10test";;
-		" Artix-S6")domen="artixS6";;
-		" ArchRiver")domen="archlinuxriver";;
+		" win10sea")domen="win10sea";;
+		#" Artix-S6")domen="artixS6";;
+		#" ArchRiver")domen="archlinuxriver";;
 		" VirtManager")DRI_PRIME=1 virt-manager; exit;;
 		*)exit;;
 	esac

@@ -5,7 +5,7 @@ DIR="$HOME/.local/bin/"
 find $DIR -type f,l | \
 	sed 's/\/.*\///' | \
 	rofi  -dmenu -p " " | \
-	xargs -r which | xargs -r $TERMINAL nvim
+	xargs -r which | xargs -r $TERMINAL -e nvimstarter
 
 
 
