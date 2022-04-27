@@ -7,7 +7,7 @@ max=96
 
 #function to send notification when battery is in critical condition
 notifier(){
-dunstify  --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%" -i battery-low \
+dunstify  --urgency=CRITICAL "Battery Low" "Level: ${per}%" -i battery-low \
 	> /dev/null 2>&1
 pw-play ~/.local/share/themes/bell.ogg \
 	> /dev/null 2>&1
@@ -17,7 +17,7 @@ if [[ "$per" -gt "$max" && $stat != Discharging  ]]; then
 	text=""
 	alt=""
 	class="full"
-elif [ stat == Charging ]; then
+elif [ "$stat" == Charging ]; then
 	text=""
 	class="charging"
 elif [ "$per" -gt "90" ]; then
@@ -54,6 +54,7 @@ elif [ "$per" -gt "0" ]; then
 else
 	text=""
 	class="dis_crit"
+	notifier
 fi
 
 alt=$per%
