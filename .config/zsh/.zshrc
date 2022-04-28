@@ -98,6 +98,16 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | wl-copy
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+
 #colorize output with grc. grc package required
 [[ -n /etc/grc.zsh ]] && source /etc/grc.zsh
 # Load syntax highlighting; should be last.

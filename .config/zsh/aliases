@@ -108,4 +108,15 @@ paruR(){
 }
 
 
+mount_ntfs(){	dev=$(sed 's|\/dev\/||' <<< "$1")
+		fstype="$(lsblk -o NAME,FSTYPE | awk -v dev="$dev" 'match($1, dev){print $2}')"
 
+	if [[ "$fstype" =~ "ntfs"*  ]]
+	then
+		sudo  mount -t ntfs3 "$1" "$2" "${@:3}"
+	else
+		sudo  mount "$1" "$2" "${@:3}"
+	fi
+}
+
+alias mount=mount_ntfs
