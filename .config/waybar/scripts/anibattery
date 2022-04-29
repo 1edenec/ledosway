@@ -23,6 +23,7 @@ elif [ "$stat" == Charging ]; then
 elif [ "$per" -gt "90" ]; then
 	text=""
 	class="dis_normal"
+	per="full"
 elif [ "$per" -gt "80" ]; then
 	text=""
 	class="dis_normal"
@@ -57,6 +58,6 @@ else
 	notifier
 fi
 
-alt=$per%
+[ $per != "full" ] && alt=$per% || alt="100"
 
 echo {\"text\": \"$text\", \"alt\": \"$alt\", \"class\":\"${class}\"}

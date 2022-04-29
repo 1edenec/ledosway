@@ -2,7 +2,7 @@
 	// "layer": "top", // Waybar at top layer
 	"position": "left", // Waybar position (top|bottom|left|right)
 	//"height": 32, // Waybar height (to be removed for auto height)
-	"width": 0, // Waybar width
+	"width": 38, // Waybar width
 	//"margin": 4,
 	"output" : "eDP-1",
 	"margin-top" : 4,
@@ -37,9 +37,10 @@
 		"clock": {
 			// "timezone": "America/New_York",
 			//"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-			"format-alt": "{:%A, %d-%B-%Y}",
+			"format": "{:%H\n%M}",
+			//"format-alt": "<b>{:%a\n%d\n%b\n%y'}</b>",
 			"on-click-right": "gsimplecal",
-			"rotate": 90
+			//"rotate": 90
 			},
 
 
@@ -85,37 +86,36 @@
 
 
 		"network": {
-			"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+			"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
 			"format-wifi": " ",
-			"format-linked": "{ifname} (No IP)  ",
+			"format-linked": "{ifname} (No IP)  ",
 			"format-disconnected": " ",
 			//"format-alt": "{ifname}: {ipaddr}/{cidr}",
 			"tooltip-format": "{ifname}",
 			"tooltip-format-wifi": "{ipaddr}\n{essid} ({signalStrength}%)",
-			"tooltip-format-ethernet": "{ifname} ",
+			"tooltip-format-ethernet": "{ifname} ",
 			"tooltip-format-disconnected": "Disconnected",
 		},
 
 
 		"pulseaudio": {
 			"format": "",
-			"format-bluetooth": "{volume}% {icon} {format_source}",
+			"format-bluetooth": "{icon}",
 			"format-muted": "婢",
 			"format-source": "{volume}% ",
 			"format-source-muted": "",
 			"format-icons": {
-				"headphone": "",
-				"hands-free": "",
-				"headset": "",
-				"phone": "",
-				"portable": "",
+				"headphone": "",
+				"hands-free": "",
+				"headset": "",
+				"phone": "",
+				"portable": "",
 				"car": "",
 				"default": ["", "", ""]
 			},
 			"on-click": "pwControl mute",
 			"on-click-right": "foot pulsemixer"
 		},
-
 }
 
 
