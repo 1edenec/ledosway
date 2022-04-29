@@ -1,0 +1,9 @@
+#!/bin/sh
+# waybar script to show date and time vertically
+
+alt="$(sed 's|.|\\n\\n<b>|3;s|.|&\\n|11;s|.|<\/b>\\n\\n|16' <(date +%a%d%b%y))"
+text="<b>$(sed 's|.|&\\n|2' <(date +%H%M))</b>"
+
+class="vertclock"
+
+echo {\"text\": \"$text\", \"alt\": \"$alt\", \"class\":\"${class}\"}

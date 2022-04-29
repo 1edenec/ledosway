@@ -19,7 +19,7 @@
 		],
 
 		"modules-center": [
-			"clock"
+			"custom/vertclock"
 		],
 
 		"modules-right": [
@@ -34,14 +34,15 @@
 	// Modules configuration
 
 
-		"clock": {
-			// "timezone": "America/New_York",
-			//"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-			"format": "{:%H\n%M}",
-			//"format-alt": "<b>{:%a\n%d\n%b\n%y'}</b>",
+		"custom/vertclock": {
+			"format": "{}",
+			"format-alt": "{alt}",
+			"return-type":"json",
+			"interval": 60,
+			"exec": "$HOME/.config/waybar/scripts/vertclock",
 			"on-click-right": "gsimplecal",
-			//"rotate": 90
-			},
+			"signal": 9,
+		},
 
 
 		"custom/anibattery": {
