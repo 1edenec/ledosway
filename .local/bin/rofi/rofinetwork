@@ -12,10 +12,10 @@ action(){
 
 
 # forming rofi choice
-OPTIONS="wifi-on\0icon\x1fnotification-network-wireless\n\
+OPTIONS="wifi-on\0icon\x1fnetwork-wireless\n\
 	wifi-off\0icon\x1fnotification-network-wireless-disconnected\n\
-	blue-on\0icon\x1fblueman\n\
-	blue-off\0icon\x1fblueman-disabled\n\
+	blue-on\0icon\x1fbluetooth\n\
+	blue-off\0icon\x1fbluetooth-disabled\n\
 	air\0icon\x1fairplane-mode"
 
 # checking bluetooth status

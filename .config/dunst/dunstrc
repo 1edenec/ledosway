@@ -201,7 +201,7 @@
 
     # Paths to default icons.
     #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-	icon_path =/usr/share/icons/oomox-aglia_led/48x48/status/
+	icon_path =/home/led/.icons/oomox-greenled/48x48/status/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout

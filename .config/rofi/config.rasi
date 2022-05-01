@@ -6,7 +6,7 @@ configuration {
 	show-icons:			true;
 	run-command:		"{cmd}";
 	run-shell-command:	"{terminal} {cmd}";
-	icon-theme:			"oomox-aglia_led";
+	icon-theme:			"oomox-greenled";
 	case-sensitive:		false;
 	cycle:				true;
 	location:			0;
