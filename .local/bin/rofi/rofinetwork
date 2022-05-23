@@ -49,6 +49,7 @@ case $option in
 		action "start" bluetooth
 		;;
 	blue-off)
+		bluetoothctl disconnect 9C:AA:1B:C1:50:BA
 		action "stop" bluetooth
 		;;
 	air)

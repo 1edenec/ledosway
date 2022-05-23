@@ -4,19 +4,15 @@
 output * bg ~/.config/sway/sway.png fill
 
 # put screens to position
-# output HDMI-A-1 pos 0 0 mode 1920x1080@75.002Hz bg #000000 solid_color
-# output * adaptive_sync on
+#output HDMI-A-1 pos 0 0 mode 1920x1080@75.002Hz bg #000000 solid_color
+#output * adaptive_sync on
 output HDMI-A-1 {
-	#scale 1.2
 	pos  0 0
-	adaptive_sync on
 	subpixel rgb
-	#mode 3440x1440
-	#mode 1920x1080@60.000Hz
 }
 
 output eDP-1 {
-		mode 1920x1080@60.201Hz
+		#mode 1920x1080@60.201Hz
 		pos 760 1440
 		adaptive_sync on
 		subpixel rgb

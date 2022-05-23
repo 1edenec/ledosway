@@ -21,7 +21,7 @@ function record_start(){
 	ENTRIES="Area  Select-monitor Select-window"
 
 	SELECTED=$(printf '%s\n' $ENTRIES |\
-		rofi -dmenu -p Screenshot: -theme screen -disable-history | awk '{print tolower($1)}')
+		rofi -dmenu -p Screenrecord: -l 3 -theme screen -disable-history | awk '{print tolower($1)}')
 
 	case $SELECTED in
 		area)

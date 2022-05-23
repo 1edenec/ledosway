@@ -3,23 +3,23 @@ emulate sh -c 'source /etc/profile'
 export MOZ_ENABLE_WAYLAND=1
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
-export WLR_NO_HARDWARE_CURSORS=1
-export LIBSEAT_BACKEND=logind
+#export LIBSEAT_BACKEND=logind
 export XDG_SESSION_DESKTOP=sway
 export DESKTOP_SESSION=sway
+export XDG_CURRENT_DESKTOP=gnome
+
+# CTK4 fix
+export GTK_THEME="$(grep 'gtk-theme-name' "${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini" | sed 's/.*\s*=\s*//')"
 
 # QT
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORM=wayland
 
-
 # to work with grimshot
 export XDG_SCREENSHOTS_DIR=$HOME/Pictures/Screen
 
 # Adds `~/.local/bin` to $PATH
-#export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-
 export PATH="$PATH:${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
 
 # Default programs:
@@ -27,10 +27,10 @@ export EDITOR="nvim"
 export SYSTEMD_EDITOR="nvim"
 export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
-export TERMINAL="foot"
+export TERMINAL="footclient"
 export BROWSER="librewolf"
 export READER="zathura"
-export FILE="pcmanfm-qt"
+export FILE="thunar"
 
 # termite SSH fix
 export TERM=xterm-color
@@ -74,16 +74,8 @@ export LESS_TERMCAP_ue=$(tput sgr0)
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me=$(tput sgr0)
 
-# bemenu colors
-# highlight=#97D59B
-# background=#1F252A
-# BEMENU_OPTS="--fn \"IosevkaMono 14\" -H 38 -p   -l 10 -w -m all --tb $background --tf $highlight --fb $background --nb $background --hb $highlight  --hf $background  --sb #80D1FF --sf $background --scb #ff0000"
-
-# export BEMENU_OPTS
-
 
 # fix for ls
 export LS_COLORS="ow=30;42"
 
-[[ `tty` == "/dev/tty1" ]] && exec sway
-
+[[ `tty` == "/dev/tty1" ]] && exec dbus-run-session sway "$@"

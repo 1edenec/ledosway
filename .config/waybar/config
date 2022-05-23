@@ -4,10 +4,10 @@
 	//"height": 32, // Waybar height (to be removed for auto height)
 	"width": 38, // Waybar width
 	//"margin": 4,
-	"output" : "eDP-1",
+	//"output" : "eDP-1",
 	"margin-top" : 4,
-	"margin-left" : 4,
-	"margin-right" : 4,
+	"margin-left" : 0,
+	"margin-right" : 0,
 	"margin-bottom" : 4,
 
 

@@ -1,11 +1,5 @@
 ### AUTOSTART APPS
 
-### Idle configuration
-#$1 - timeout to lock
-#$2 - timeout to screen of
-#exec_always ~/.config/sway/scripts/swayidle.sh 300 300
-
-
 # Clamshell Mode
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
@@ -13,24 +7,27 @@ bindswitch --reload --locked lid:off output $laptop enable
 
 
 # GTK3 applications take a long time to start
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec hash dbus-update-activation-environment 2>/dev/null && \
+
+# wlr portal enabling
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#if-exists autostarts
 
 
-# if-exists autostarts
-#
 exec {
     '[ -x "$(command -v autotiling)" ] && autotiling'
+    '[ -x "$(command -v foot)" ] && foot --server'
 }
 
-exec_always {
-	# start foot server
-	#'[ ! -f /run/user/1000/foot-wayland-1.sock ] && foot -s'
+# wlroots
+# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+exec_always {
 	# start flashfocus
 	'[ -x "$(command -v flashfocus)" ] && killall flashfocus ; flashfocus'
-
 	# fix to dunst when session of sway was restarted
 	'[ -x "$(command -v dunst)" ] && pkill dunst'
 	# polkit from lxsession-gtk3
