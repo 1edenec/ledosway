@@ -41,7 +41,7 @@ fzf_completion() {
         fi
 
         # all except autoload functions
-        local full_functions="$(functions + | fgrep -vx "$(functions -u +)")"
+        local full_functions="$(functions + | grep -Fvx "$(functions -u +)")"
 
         # do not allow grouping, it stuffs up display strings
         zstyle ":completion:*:*" list-grouped no
@@ -56,7 +56,7 @@ fzf_completion() {
                 stderr="$(
                     _fzf_completion_preexit() {
                         echo set -A _comps "${(qkv)_comps[@]}" >&"${__evaled}"
-                        functions + | fgrep -vx -e "$(functions -u +)" -e "$full_functions" | while read -r f; do which -- "$f"; done >&"${__evaled}"
+                        functions + | grep -Fvx -e "$(functions -u +)" -e "$full_functions" | while read -r f; do which -- "$f"; done >&"${__evaled}"
                     }
                     trap _fzf_completion_preexit EXIT TERM
                     _main_complete 2>&1

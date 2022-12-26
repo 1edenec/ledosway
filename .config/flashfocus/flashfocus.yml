@@ -93,17 +93,21 @@ flash-lone-windows: 'always'
 
 
 rules:
-  - app-id: librewolf
+  - app-id: LibreWolf
     flash-on-focus: False
     default-opacity: 1.0
   - app-id: mpv
     flash-on-focus: True
     default-opacity: 1.0
-  - window-name: DesktopEditors
+  - app-id: libreoffice
     default-opacity: 1.0
+    flash-on-focus: True
   - window-name: ONLYOFFICE
     default-opacity: 1.0
   - app-id: virt-manager
     flash-on-focus: False
+    default-opacity: 1.0
+  - window-name: Gimp-2.10
+    flash-on-focus: True
     default-opacity: 1.0
 

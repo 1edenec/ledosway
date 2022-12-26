@@ -3,7 +3,7 @@
 bat=/sys/class/power_supply/BAT1/
 per="$(cat "$bat/capacity")"
 stat="$(cat "$bat/status")"
-max=96
+max=90
 
 #function to send notification when battery is in critical condition
 notifier(){
@@ -13,7 +13,11 @@ pw-play ~/.local/share/themes/bell.ogg \
 	> /dev/null 2>&1
 }
 
-if [[ "$per" -gt "$max" && $stat != Discharging  ]]; then
+if [[ $stat == Unknown  ]]; then
+	text=""
+	alt=""
+	class="full"
+elif [[ "$per" -gt "$max" && $stat != Discharging  ]]; then
 	text=""
 	alt=""
 	class="full"

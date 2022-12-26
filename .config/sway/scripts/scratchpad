@@ -30,7 +30,8 @@ CONFIG=$HOME/.config/sway/config.d/theme
 GAPS_INN=$(awk '/gaps inner/ {print $3}' "$CONFIG")
 GAPS_OUT=$(awk '/gaps outer/ {print $3}' "$CONFIG")
 
-TERM_W=$((  display_W - GAPS_INN * 2 + GAPS_OUT * 2 ))
+# 38 is constat, depending on waybar width
+TERM_W=$((  display_W - GAPS_INN * 2 + GAPS_OUT * 2 - 38 ))
 TERM_H=$((  display_H * 33 / 100 ))
 
 TERM_X=0

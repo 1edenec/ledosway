@@ -29,8 +29,8 @@
 	min-height: 0;
 	margin: 0px;
 	padding: 0;
+	/* all: unset; */
 }
-
 
 #waybar {
 	/*border-radius: 40;*/
@@ -73,6 +73,17 @@
 #mode {
 	background-color: @black1;
 	border-bottom: 4px solid @normal;
+}
+
+
+tooltip {
+  background: @background;
+  border: 1px solid @normal;
+}
+
+
+tooltip label {
+  color: @normal;
 }
 
 

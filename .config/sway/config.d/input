@@ -20,3 +20,6 @@ input type:keyboard {
 	repeat_delay 300
 	repeat_rate 30
 }
+
+# hide cursor when unused
+seat * hide_cursor 8000

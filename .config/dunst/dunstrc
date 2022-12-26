@@ -433,4 +433,10 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 #
+# [hui]
+# 	appname = "hui"
+# 	summary = "hui"
+# 	background="#FF0000"
+
+
 # vim: ft=cfg
