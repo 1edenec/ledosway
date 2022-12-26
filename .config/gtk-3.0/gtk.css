@@ -1,0 +1,12 @@
+/* thunar fix */
+.thunar .view:selected {
+	background-color: #1F252A;
+}
+
+/* suggestion button fix */
+.suggested-action {
+	background-color: #97D59B;
+	color: #1F252A;
+}
+
+
