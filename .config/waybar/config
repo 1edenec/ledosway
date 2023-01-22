@@ -87,15 +87,18 @@
 
 
 		"network": {
-			"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+			//"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+			"format-ethernet": "",
 			"format-wifi": " ",
-			"format-linked": "{ifname} (No IP)  ",
+			"format-linked": "  ",
 			"format-disconnected": " ",
 			//"format-alt": "{ifname}: {ipaddr}/{cidr}",
 			"tooltip-format": "{ifname}",
 			"tooltip-format-wifi": "{ipaddr}\n{essid} ({signalStrength}%)",
-			"tooltip-format-ethernet": "{ifname} ",
+			"tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
 			"tooltip-format-disconnected": "Disconnected",
+			"tooltip-format-linked": "{ifname} no ip",
+
 		},
 
 

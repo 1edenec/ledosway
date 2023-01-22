@@ -25,6 +25,9 @@ bindsym  $mod+Return exec $term
 
 bindsym $mod+Escape exec $configred
 
+# ncmpcpp
+bindsym --to-code $mod+n exec $term -T "ncmpcpp" ncmpcpp
+
 # Kill focused window
 bindsym --to-code $mod+Shift+q kill
 

@@ -99,15 +99,14 @@ rules:
   - app-id: mpv
     flash-on-focus: True
     default-opacity: 1.0
-  - app-id: libreoffice
-    default-opacity: 1.0
-    flash-on-focus: True
-  - window-name: ONLYOFFICE
+  - window-name: DesktopEditors
     default-opacity: 1.0
   - app-id: virt-manager
     flash-on-focus: False
     default-opacity: 1.0
-  - window-name: Gimp-2.10
+  - window-class: krita
     flash-on-focus: True
     default-opacity: 1.0
+
+
 
