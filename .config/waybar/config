@@ -88,9 +88,9 @@
 
 		"network": {
 			//"format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
-			"format-ethernet": "",
+			"format-ethernet": "󰈀",
 			"format-wifi": " ",
-			"format-linked": "  ",
+			"format-linked": "󰈀",
 			"format-disconnected": " ",
 			//"format-alt": "{ifname}: {ipaddr}/{cidr}",
 			"tooltip-format": "{ifname}",
@@ -105,15 +105,15 @@
 		"pulseaudio": {
 			"format": "",
 			"format-bluetooth": "{icon}",
-			"format-muted": "婢",
+			"format-muted": "",
 			"format-source": "{volume}% ",
 			"format-source-muted": "",
 			"format-icons": {
-				"headphone": "",
-				"hands-free": "",
-				"headset": "",
-				"phone": "",
-				"portable": "",
+				"headphone": "",
+				"hands-free": "󰋎",
+				"headset": "󰋎",
+				"phone": "",
+				"portable": "󰋎",
 				"car": "",
 				"default": ["", "", ""]
 			},

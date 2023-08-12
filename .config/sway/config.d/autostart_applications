@@ -11,6 +11,8 @@ bindswitch --reload --locked lid:off output $laptop enable
 # exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # wlr portal enabling
+#exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 #exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
@@ -18,7 +20,6 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 
 
 exec {
-    '[ -x "$(command -v autotiling)" ] && autotiling'
     '[ -x "$(command -v foot)" ] && foot --server'
 }
 
@@ -27,11 +28,12 @@ exec {
 
 exec_always {
 	# start flashfocus
-	'[ -x "$(command -v flashfocus)" ] && killall flashfocus ; flashfocus'
+	'pkill flashfocus; flashfocus'
 	# fix to dunst when session of sway was restarted
-	'[ -x "$(command -v dunst)" ] && pkill dunst'
+	'pkill dunst; dunst'
 	# polkit from lxsession-gtk3
-	'[ -x "$(command -v lxpolkit)" ] && pkill lxpolkit; lxpolkit'
+	'pkill lxpolkit; lxpolkit'
+	'killall autotiling; autotiling -l 2 '
 }
 
 
