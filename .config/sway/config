@@ -1,5 +1,6 @@
 ###
 #~/.config/sway/config
 # all options are here
+#test
 include /home/led/.config/sway/config.d/*
 
